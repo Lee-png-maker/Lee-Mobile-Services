@@ -1,77 +1,6 @@
+<h2>📋 Customer Bookings</h2>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<button onclick="logout()">🚪 Logout</button>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Admin Dashboard | Lee Mobile Services</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<script type="module" src="auth.js"></script>
-<script type="module" src="admin.js"></script>
-
-<body>
-
-<header>
-
-<div class="logo">
-
-<h1>Lee Mobile Services</h1>
-
-<p>Admin Dashboard</p>
-
-</div>
-
-<nav>
-
-<a href="index.html">🏠 Home</a>
-<a href="services.html">🧺 Services</a>
-<a href="booking.html">📅 Bookings</a>
-<a href="prices.html">💰 Prices</a>
-<a href="contact.html">📞 Contact</a>
-
-</nav>
-
-</header>
-
-<section>
-
-<h2>Dashboard</h2>
-
-<div class="service-card">
-
-<h3>📊 Business Summary</h3>
-
-<p>Total Bookings: <span id="totalBookings">0</span></p>
-
-<p>Pending Bookings: <span id="pendingBookings">0</span></p>
-
-<p>Completed Jobs: <span id="completedJobs">0</span></p>
-
-<p>Estimated Income: <span id="totalIncome">R0</span></p>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Customer Bookings</h2>
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search by customer or service">
-
-<br><br>
-
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
+<table id="bookingTable">
 
 <thead>
 
@@ -83,30 +12,27 @@ placeholder="Search by customer or service">
 
 <th>Service</th>
 
+<th>Address</th>
+
 <th>Date</th>
+
+<th>Time</th>
+
+<th>Photo</th>
 
 <th>Status</th>
 
-<th>Actions</th>
+<th>Action</th>
 
 </tr>
 
 </thead>
 
-<tbody id="bookingTable">
-
-<tr>
-
-<td colspan="6" style="text-align:center;">
-
-No bookings available.
-
-</td>
-
-</tr>
+<tbody id="bookingList">
 
 </tbody>
 
+</table>
 </table>
 
 </section>
