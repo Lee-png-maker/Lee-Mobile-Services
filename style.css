@@ -164,3 +164,30 @@ footer {
   text-align: center;
   padding: 20px;
 }
+
+.review-card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin:15px 0;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+#reviewForm{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+#reviewForm input,
+#reviewForm select,
+#reviewForm textarea{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+#reviewList{
+    margin-top:20px;
+}
