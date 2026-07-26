@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lee Mobile Laundry, Car Wash & Cleaning Services</title>
-
-<meta name="theme-color" content="#0b6e4f">
+<title>Book a Service | Lee Mobile Services</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
 
 </head>
 
@@ -19,136 +17,201 @@
 <header>
 
 <div class="logo">
+
 <h1>Lee Mobile Services</h1>
-<p>Laundry • Car Wash • Cleaning • Home Services</p>
+
+<p>Book Your Service</p>
+
 </div>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+
+<a href="index.html">🏠 Home</a>
+
+<a href="services.html">🧺 Services</a>
+
+<a href="prices.html">💰 Prices</a>
+
+<a href="contact.html">📞 Contact</a>
+
 </nav>
 
 </header>
 
-<section id="home" class="hero">
+<section class="booking-section">
 
-<h2>Professional Mobile Services At Your Doorstep</h2>
+<h2>Book Your Service</h2>
 
-<p>
-We provide affordable, reliable and professional
-mobile services across Gauteng.
-</p>
+<form id="bookingForm">
 
-<button>Book Now</button>
+<label>Full Name</label>
 
-</section>
+<input
+type="text"
+id="name"
+placeholder="Enter your full name"
+required>
 
-<section id="services">
+<label>Phone Number</label>
 
-<h2>Our Services</h2>
+<input
+type="tel"
+id="phone"
+placeholder="e.g. 0812345678"
+required>
 
-<div class="service-card">
-<h3>🧺 Mobile Laundry</h3>
-<p>Wash, dry, fold and delivery.</p>
-<button>Book Laundry</button>
-</div>
+<label>Email (Optional)</label>
 
-<div class="service-card">
-<h3>🚗 Mobile Car Wash</h3>
-<p>Interior and exterior vehicle cleaning.</p>
-<button>Book Car Wash</button>
-</div>
+<input
+type="email"
+id="email"
+placeholder="example@email.com">
 
-<div class="service-card">
-<h3>🧹 Home Cleaning</h3>
-<p>Professional home and apartment cleaning.</p>
-<button>Book Home Cleaning</button>
-</div>
+<label>Select Service</label>
 
-<div class="service-card">
-<h3>🪟 Window Cleaning</h3>
-<p>Residential and office window cleaning.</p>
-<button>Book Window Cleaning</button>
-</div>
+<select id="service">
 
-<div class="service-card">
-<h3>🛋 Couch Cleaning</h3>
-<p>Deep couch and sofa cleaning.</p>
-<button>Book Couch Cleaning</button>
-</div>
+<option>Mobile Laundry</option>
 
-<div class="service-card">
-<h3>🛏 Mattress Cleaning</h3>
-<p>Deep mattress sanitizing.</p>
-<button>Book Mattress Cleaning</button>
-</div>
+<option>Mobile Car Wash</option>
 
-<div class="service-card">
-<h3>🏊 Pool Cleaning</h3>
-<p>Professional pool cleaning and maintenance.</p>
-<button>Book Pool Cleaning</button>
-</div>
+<option>Home Cleaning</option>
 
-<div class="service-card">
-<h3>🔧 Plumbing</h3>
-<p>Leaks, blocked drains, tap installations and plumbing repairs.</p>
-<button>Book Plumbing</button>
-</div>
+<option>Window Cleaning</option>
 
-<div class="service-card">
-<h3>🐕 Dog Wash</h3>
-<p>Mobile dog bathing, grooming and drying.</p>
-<button>Book Dog Wash</button>
-</div>
+<option>Couch Cleaning</option>
 
-<div class="service-card">
-<h3>🏠 Home Renovations</h3>
-<p>Renovations, tiling, ceilings, flooring and general home improvements.</p>
-<button>Book Renovation</button>
-</div>
+<option>Mattress Cleaning</option>
 
-<div class="service-card">
-<h3>🎨 Painting</h3>
-<p>Interior and exterior painting for homes, offices and businesses.</p>
-<button>Book Painting</button>
-</div>
+<option>Pool Cleaning</option>
 
-<div class="service-card">
-<h3>👟 Shoe Cleaning</h3>
-<p>Professional sneaker and shoe cleaning, whitening and restoration.</p>
-<button>Book Shoe Cleaning</button>
-</div>
+<option>Plumbing</option>
 
-</section>
+<option>Dog Wash</option>
 
-<section id="about">
+<option>Home Renovations</option>
 
-<h2>About Us</h2>
+<option>Painting</option>
 
-<p>
+<option>Shoe Cleaning</option>
 
-Lee Mobile Laundry, Car Wash & Cleaning Services provides
-professional mobile services at your home or office.
+</select>
 
-We are committed to quality, reliability and affordable prices.
+<label>Preferred Date</label>
 
-</p>
+<input
+type="date"
+id="date"
+required>
 
-</section>
+<label>Preferred Time</label>
 
-<section id="contact">
+<input
+type="time"
+id="time"
+required>
 
-<h2>Contact Us</h2>
+<label>Property Type</label>
 
-<p>📞 068 868 5355</p>
+<select id="property">
 
-<p>📍 Serving Johannesburg, Pretoria, Midrand, Centurion, Tembisa and surrounding areas.</p>
+<option>House</option>
 
-<button id="callBtn">Call Now</button>
+<option>Apartment</option>
 
-<button id="whatsappBtn">WhatsApp Us</button>
+<option>Office</option>
+
+<option>Business</option>
+
+</select>
+
+<label>Address</label>
+
+<input
+type="text"
+id="address"
+placeholder="Enter service address"
+required>
+
+<button
+type="button"
+id="locationBtn">
+
+📍 Use My Current Location
+
+</button>
+
+<label>Upload Photos (Optional)</label>
+
+<input
+type="file"
+id="photos"
+accept="image/*"
+multiple>
+
+<label>Special Instructions</label>
+
+<textarea
+id="notes"
+rows="5"
+placeholder="Tell us anything we should know..."></textarea>
+
+<h3>Payment Method</h3>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="Cash"
+checked>
+
+Cash
+
+</label>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="EFT">
+
+EFT
+
+</label>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="Card">
+
+Card
+
+</label>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="iKhokha">
+
+iKhokha
+
+</label>
+
+<button
+type="submit"
+id="bookBtn">
+
+💬 Book on WhatsApp
+
+</button>
+
+</form>
 
 </section>
 
@@ -156,13 +219,14 @@ We are committed to quality, reliability and affordable prices.
 
 <p>
 
-© 2026 Lee Mobile Laundry, Car Wash & Cleaning Services
+© 2026 Lee Mobile Laundry,
+Car Wash & Cleaning Services
 
 </p>
 
 </footer>
 
-<script src="script.js"></script>
+<script src="booking.js"></script>
 
 </body>
 
