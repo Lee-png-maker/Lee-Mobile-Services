@@ -5,7 +5,7 @@
 const businessPhone = "27688685355";
 
 // GPS Location Button
-const locationBtn = document.getElementById("locationBtn");
+const locationBtn = document.getElementById("locationBtn")
 
 if (locationBtn) {
 
