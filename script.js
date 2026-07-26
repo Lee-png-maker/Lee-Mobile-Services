@@ -1,91 +1,97 @@
-// ================================
-// Lee Mobile Services - Version 2
-// ================================
+// =========================================
+// Lee Mobile Services - booking.js
+// =========================================
 
-const businessPhone = "27688685355"; // South Africa format (27 + number)
+const businessPhone = "27688685355";
 
-// Welcome message
-window.onload = function () {
-    console.log("Lee Mobile Services App Loaded");
-};
+// GPS Location Button
+const locationBtn = document.getElementById("locationBtn");
 
-// Book buttons
-const bookButtons = document.querySelectorAll(".service-card button");
+if (locationBtn) {
 
-bookButtons.forEach(button => {
+    locationBtn.addEventListener("click", function () {
 
-    button.addEventListener("click", function () {
+        if (!navigator.geolocation) {
+            alert("Your device does not support GPS.");
+            return;
+        }
 
-        const service = this.parentElement.querySelector("h3").innerText;
+        locationBtn.innerHTML = "Getting Location...";
 
-        const message =
-`Hello Lee Mobile Services,
+        navigator.geolocation.getCurrentPosition(
 
-I would like to book the following service:
+            function (position) {
 
-Service: ${service}
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
 
-Name:
+                document.getElementById("address").value =
+                    "https://maps.google.com/?q=" + lat + "," + lng;
 
-Phone:
+                locationBtn.innerHTML = "✅ Location Added";
 
-Address:
+            },
 
-Preferred Date:
+            function () {
 
-Preferred Time:
+                alert("Unable to get your location.");
 
-Thank you.`;
+                locationBtn.innerHTML = "📍 Use My Current Location";
 
-        const url =
-`https://wa.me/${businessPhone}?text=${encodeURIComponent(message)}`;
+            }
 
-        window.open(url, "_blank");
+        );
 
     });
 
-});
-
-// Hero Book Now button
-const heroButton = document.querySelector(".hero button");
-
-if(heroButton){
-
-heroButton.addEventListener("click",function(){
-
-document.getElementById("services").scrollIntoView({
-behavior:"smooth"
-});
-
-});
-
 }
 
-// WhatsApp button
-const whatsappBtn=document.getElementById("whatsappBtn");
+// Booking Form
+const bookingForm = document.getElementById("bookingForm");
 
-if(whatsappBtn){
+bookingForm.addEventListener("submit", function (e) {
 
-whatsappBtn.addEventListener("click",function(){
+    e.preventDefault();
 
-window.open(
-"https://wa.me/"+businessPhone,
-"_blank"
-);
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const service = document.getElementById("service").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const property = document.getElementById("property").value;
+    const address = document.getElementById("address").value.trim();
+    const notes = document.getElementById("notes").value.trim();
 
-});
+    const payment =
+        document.querySelector('input[name="payment"]:checked').value;
 
-}
+    if (
+        name === "" ||
+        phone === "" ||
+        address === "" ||
+        date === "" ||
+        time === ""
+    ) {
+        alert("Please complete all required fields.");
+        return;
+    }
 
-// Call button
-const callBtn=document.getElementById("callBtn");
+    const message =
+`*NEW BOOKING*
 
-if(callBtn){
+👤 Name: ${name}
 
-callBtn.addEventListener("click",function(){
+📞 Phone: ${phone}
 
-window.location.href="tel:+27688685355";
+📧 Email: ${email || "Not provided"}
 
-});
+🧺 Service: ${service}
 
-}
+🏠 Property: ${property}
+
+📅 Date: ${date}
+
+🕒 Time: ${time}
+
+📍
