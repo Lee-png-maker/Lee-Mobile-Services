@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7f6;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background: #0b6e4f;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  background: white;
+  color: #0b6e4f;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+header h1 {
+  margin-top: 10px;
+}
+
+.tagline {
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero p {
+  margin: 15px 0 25px;
+}
+
+.main-btn {
+  display: inline-block;
+  background: #0b6e4f;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.services {
+  padding: 30px 20px;
+}
+
+.services h2,
+.booking h2,
+.contact h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.service-card {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.icon {
+  font-size: 45px;
+}
+
+.service-card button {
+  margin-top: 15px;
+  background: #0b6e4f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.booking {
+  background: white;
+  margin: 30px 20px;
+  padding: 30px 20px;
+  border-radius: 12px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.whatsapp-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.contact {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
