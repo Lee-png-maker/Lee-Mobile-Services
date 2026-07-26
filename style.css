@@ -1,137 +1,168 @@
-/* ===========================
+/* ==========================
    Lee Mobile Services
-   Professional Style Sheet
-=========================== */
+   Professional Style.css
+========================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
+    font-family:Arial, Helvetica, sans-serif;
     background:#f5f7fa;
     color:#333;
     line-height:1.6;
 }
 
-/* Header */
+a{
+    text-decoration:none;
+}
 
-header{
-    background:#0b6e4f;
-    color:white;
-    padding:20px;
+img{
+    max-width:100%;
+}
+
+/* HEADER */
+
+.header{
+    background:#0A66C2;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
     position:sticky;
     top:0;
     z-index:1000;
-}
-
-.logo{
-    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
 .logo h1{
-    font-size:30px;
+    font-size:28px;
 }
 
 .logo p{
-    margin-top:5px;
-    font-size:15px;
+    font-size:14px;
+    opacity:.9;
 }
 
-/* Navigation */
-
-nav{
-    margin-top:20px;
+.navbar{
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
+    gap:20px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
+.navbar a{
+    color:#fff;
     font-weight:bold;
-    padding:10px 18px;
-    border-radius:25px;
-    transition:0.3s;
+    transition:.3s;
 }
 
-nav a:hover{
-    background:white;
-    color:#0b6e4f;
+.navbar a:hover{
+    color:#FFD54F;
 }
 
-/* Hero Section */
+/* HERO */
 
 .hero{
+    min-height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
     padding:60px 20px;
-    background:linear-gradient(#0b6e4f,#22b573);
+    background:linear-gradient(rgba(10,102,194,.75),rgba(10,102,194,.75)),
+    url("images/hero.jpg") center/cover no-repeat;
     color:white;
 }
 
-.hero h2{
-    font-size:34px;
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:42px;
     margin-bottom:20px;
 }
 
 .hero p{
-    max-width:700px;
-    margin:auto;
     font-size:18px;
+    margin-bottom:30px;
 }
 
-.hero button{
-    margin-top:30px;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-/* Buttons */
+/* BUTTONS */
 
+.primary-btn,
+.secondary-btn,
 button{
-    background:#0b6e4f;
-    color:white;
     border:none;
-    padding:14px 25px;
-    border-radius:30px;
+    border-radius:8px;
+    padding:14px 24px;
     cursor:pointer;
     font-size:16px;
+    font-weight:bold;
     transition:.3s;
 }
 
-button:hover{
-    background:#09543d;
-    transform:scale(1.05);
+.primary-btn{
+    background:#0A66C2;
+    color:#fff;
 }
 
-/* Sections */
+.primary-btn:hover{
+    background:#084d92;
+}
+
+.secondary-btn{
+    background:#FFD54F;
+    color:#222;
+}
+
+.secondary-btn:hover{
+    background:#ffc107;
+}
+
+/* SECTIONS */
 
 section{
-    padding:50px 20px;
+    padding:70px 8%;
 }
 
 section h2{
     text-align:center;
-    margin-bottom:35px;
-    color:#0b6e4f;
+    font-size:34px;
+    margin-bottom:15px;
 }
 
-/* Services */
+.section-text{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 40px;
+    color:#666;
+}
 
-#services{
+/* SERVICE GRID */
+
+.services-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
 }
 
 .service-card{
     background:white;
-    border-radius:15px;
+    border-radius:12px;
     padding:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
     text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
     transition:.3s;
 }
 
@@ -139,79 +170,116 @@ section h2{
     transform:translateY(-8px);
 }
 
+.service-icon{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
 .service-card h3{
     margin-bottom:15px;
-    color:#0b6e4f;
-    font-size:22px;
 }
 
 .service-card p{
     margin-bottom:20px;
+    color:#666;
 }
 
-/* About */
+/* REVIEWS */
 
-#about{
-    background:white;
+.reviews{
+    background:#eef5ff;
+}
+
+/* CONTACT */
+
+.contact{
     text-align:center;
 }
 
-#about p{
-    max-width:900px;
-    margin:auto;
-    font-size:18px;
+.contact p{
+    margin:10px 0;
 }
 
-/* Contact */
-
-#contact{
-    background:#eef8f4;
-    text-align:center;
-}
-
-#contact p{
-    margin:15px 0;
-    font-size:18px;
-}
-
-#contact button{
-    margin:10px;
-}
-
-/* Footer */
+/* FOOTER */
 
 footer{
-    background:#0b6e4f;
+    background:#111;
     color:white;
     text-align:center;
     padding:25px;
-    margin-top:40px;
 }
 
-/* Mobile */
+/* WHATSAPP */
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+
+/* TABLES */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:white;
+}
+
+th{
+    background:#0A66C2;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+/* MOBILE */
 
 @media(max-width:768px){
 
-.logo h1{
-    font-size:24px;
+.header{
+    flex-direction:column;
+    gap:15px;
 }
 
-.hero h2{
-    font-size:26px;
+.navbar{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero{
+    min-height:50vh;
+}
+
+.hero h1{
+    font-size:30px;
 }
 
 .hero p{
     font-size:16px;
 }
 
-nav{
-    flex-direction:column;
-    align-items:center;
+section{
+    padding:50px 20px;
 }
 
-button{
-    width:100%;
-    max-width:300px;
+section h2{
+    font-size:28px;
 }
 
 }
