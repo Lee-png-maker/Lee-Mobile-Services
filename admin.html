@@ -1,1 +1,175 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | Lee Mobile Services</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<h1>Lee Mobile Services</h1>
+
+<p>Admin Dashboard</p>
+
+</div>
+
+<nav>
+
+<a href="index.html">🏠 Home</a>
+<a href="services.html">🧺 Services</a>
+<a href="booking.html">📅 Bookings</a>
+<a href="prices.html">💰 Prices</a>
+<a href="contact.html">📞 Contact</a>
+
+</nav>
+
+</header>
+
+<section>
+
+<h2>Dashboard</h2>
+
+<div class="service-card">
+
+<h3>📊 Business Summary</h3>
+
+<p>Total Bookings: <span id="totalBookings">0</span></p>
+
+<p>Pending Bookings: <span id="pendingBookings">0</span></p>
+
+<p>Completed Jobs: <span id="completedJobs">0</span></p>
+
+<p>Estimated Income: <span id="totalIncome">R0</span></p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Customer Bookings</h2>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by customer or service">
+
+<br><br>
+
+<table border="1" width="100%" cellspacing="0" cellpadding="10">
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Phone</th>
+
+<th>Service</th>
+
+<th>Date</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="bookingTable">
+
+<tr>
+
+<td colspan="6" style="text-align:center;">
+
+No bookings available.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Quick Actions</h2>
+
+<div class="service-card">
+
+<button onclick="window.location.href='booking.html'">
+
+➕ Add Booking
+
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='services.html'">
+
+🧺 View Services
+
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='prices.html'">
+
+💰 Update Prices
+
+</button>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Business Information</h2>
+
+<div class="service-card">
+
+<p><strong>Business:</strong> Lee Mobile Services</p>
+
+<p><strong>Phone:</strong> 068 868 5355</p>
+
+<p><strong>Email:</strong> info@leemobileservices.co.za</p>
+
+<p><strong>Coverage:</strong> Johannesburg, Pretoria, Midrand, Centurion, Tembisa & Surrounding Areas</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Lee Mobile Services
+
+</p>
+
+</footer>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+
+</html>
