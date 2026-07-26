@@ -1,112 +1,22 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Book a Service | Lee Mobile Services</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-
-<h1>Lee Mobile Services</h1>
-
-<p>Laundry • Car Wash • Cleaning • Home Services</p>
-
-</div>
-
-<nav>
-
-<a href="index.html">🏠 Home</a>
-<a href="services.html">🧺 Services</a>
-<a href="prices.html">💰 Prices</a>
-<a href="about.html">ℹ About</a>
-<a href="contact.html">📞 Contact</a>
-
-</nav>
-
-</header>
-
-<section class="booking-section">
-
-<h2>Book Your Service</h2>
-
-<form id="bookingForm">
-
-<label>Full Name</label>
+<label>Customer Address</label>
 
 <input
 type="text"
-id="name"
-placeholder="Enter your full name"
+id="address"
+placeholder="Enter your address"
 required>
 
-<label>Phone Number</label>
+<button type="button" onclick="getLocation()">
+
+📍 Use My Current Location
+
+</button>
 
 <input
-type="tel"
-id="phone"
-placeholder="0681234567"
-required>
-
-<label>Email (Optional)</label>
-
-<input
-type="email"
-id="email"
-placeholder="example@email.com">
-
-<label>Select Service</label>
-
-<select id="service">
-
-<option>Mobile Laundry</option>
-<option>Mobile Car Wash</option>
-<option>Home Cleaning</option>
-<option>Window Cleaning</option>
-<option>Couch Cleaning</option>
-<option>Mattress Cleaning</option>
-<option>Pool Cleaning</option>
-<option>Plumbing</option>
-<option>Dog Wash</option>
-<option>Home Renovations</option>
-<option>Painting</option>
-<option>Shoe Cleaning</option>
-
-</select>
-
-<div id="priceDisplay" class="price-box">
-
-<strong>Estimated Price:</strong> R150
-
-</div>
-
-<label>Preferred Date</label>
-
-<input
-type="date"
-id="date"
-required>
-
-<label>Preferred Time</label>
-
-<input
-type="time"
-id="time"
-required>
-
-<label>Property Type</label>
-
-<select id="property">
+type="text"
+id="gpsLocation"
+placeholder="GPS Coordinates"
+readonly><select id="property">
 
 <option>House</option>
 <option>Apartment</option>
