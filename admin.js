@@ -1,45 +1,155 @@
+// ===============================
+// Lee Mobile Services
+// admin.js Version 3
+// ===============================
 
-// ===========================================
-// Lee Mobile Services - admin.js
-// Firebase Firestore Admin Dashboard
-// ===========================================
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { db, auth } from "./firebase.js";
 
 import {
-getFirestore,
-collection,
-getDocs,
-deleteDoc,
-doc
+    collection,
+    getDocs,
+    deleteDoc,
+    updateDoc,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-// Firebase Configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA-Ik-sIZhg3ShrywwJif0It5PH6R17Mu0",
-  authDomain: "lee-mobile-services.firebaseapp.com",
-  projectId: "lee-mobile-services",
-  storageBucket: "lee-mobile-services.firebasestorage.app",
-  messagingSenderId: "507796082180",
-  appId: "1:507796082180:web:8df5734768f261f21b2f51"
-};
+import {
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const bookingList = document.getElementById("bookingList");
 
-const bookingTable = document.getElementById("bookingTable");
 const totalBookings = document.getElementById("totalBookings");
+const pendingBookings = document.getElementById("pendingBookings");
+const completedBookings = document.getElementById("completedBookings");
+
+// Load Bookings
 
 async function loadBookings() {
 
-    bookingTable.innerHTML = "";
+    bookingList.innerHTML = "";
 
     const snapshot = await getDocs(collection(db, "bookings"));
 
-    totalBookings.innerHTML = snapshot.size;
+    let total = 0;
+    let pending = 0;
+    let completed = 0;
 
-    if (snapshot.empty) {
+    snapshot.forEach((documentData) => {
 
-        bookingTable.innerHTML =
-       
+        total++;
+
+        const booking = documentData.data();
+
+        if (booking.status === "Pending") pending++;
+        if (booking.status === "Completed") completed++;
+
+        bookingList.innerHTML += `
+
+<tr>
+
+<td>${booking.name || ""}</td>
+
+<td>${booking.phone || ""}</td>
+
+<td>${booking.service || ""}</td>
+
+<td>${booking.address || ""}</td>
+
+<td>${booking.bookingDate || ""}</td>
+
+<td>${booking.bookingTime || ""}</td>
+
+<td>
+
+${booking.photo
+? `<img src="${booking.photo}" width="80" style="border-radius:8px;">`
+: "No Photo"}
+
+</td>
+
+<td>
+
+<select onchange="updateStatus('${documentData.id}', this.value)">
+
+<option value="Pending" ${booking.status==="Pending"?"selected":""}>Pending</option>
+
+<option value="Confirmed" ${booking.status==="Confirmed"?"selected":""}>Confirmed</option>
+
+<option value="On the Way" ${booking.status==="On the Way"?"selected":""}>On the Way</option>
+
+<option value="Completed" ${booking.status==="Completed"?"selected":""}>Completed</option>
+
+<option value="Cancelled" ${booking.status==="Cancelled"?"selected":""}>Cancelled</option>
+
+</select>
+
+</td>
+
+<td>
+
+<button onclick="deleteBooking('${documentData.id}')">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+    });
+
+    totalBookings.textContent = total;
+    pendingBookings.textContent = pending;
+    completedBookings.textContent = completed;
+
+}
+
+// Update Status
+
+window.updateStatus = async function(id, status){
+
+    await updateDoc(doc(db, "bookings", id), {
+
+        status: status
+
+    });
+
+    alert("Booking updated.");
+
+    loadBookings();
+
+}
+
+// Delete Booking
+
+window.deleteBooking = async function(id){
+
+    if(confirm("Delete this booking?")){
+
+        await deleteDoc(doc(db, "bookings", id));
+
+        loadBookings();
+
+    }
+
+}
+
+// Logout
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", async ()=>{
+
+    await signOut(auth);
+
+    window.location.href="login.html";
+
+});
+
+// Start
+
+loadBookings();
