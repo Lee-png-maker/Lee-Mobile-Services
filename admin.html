@@ -1,105 +1,6 @@
-<h2>📋 Customer Bookings</h2>
+<body>
 
-<table id="bookingTable">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Phone</th>
-
-<th>Service</th>
-
-<th>Address</th>
-
-<th>Date</th>
-
-<th>Time</th>
-
-<th>Photo</th>
-
-<th>Status</th>
-
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody id="bookingList">
-
-</tbody>
-
-</table>
-</table>
-
-</section>
-
-<section>
-
-<h2>Quick Actions</h2>
-
-<div class="service-card">
-
-<button onclick="window.location.href='booking.html'">
-
-➕ Add Booking
-
-</button>
-
-<br><br>
-
-<button onclick="window.location.href='services.html'">
-
-🧺 View Services
-
-</button>
-
-<br><br>
-
-<button onclick="window.location.href='prices.html'">
-
-💰 Update Prices
-
-</button>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Business Information</h2>
-
-<div class="service-card">
-
-<p><strong>Business:</strong> Lee Mobile Services</p>
-
-<p><strong>Phone:</strong> 068 868 5355</p>
-
-<p><strong>Email:</strong> info@leemobileservices.co.za</p>
-
-<p><strong>Coverage:</strong> Johannesburg, Pretoria, Midrand, Centurion, Tembisa & Surrounding Areas</p>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 Lee Mobile Services
-
-</p>
-
-</footer>
-
-<script type="module" src="admin.js"></script>
-
-</body><header>
+<header>
 
 <h1>👨‍💼 Lee Mobile Services Admin Dashboard</h1>
 
@@ -133,5 +34,45 @@
 </div>
 
 </div>
+</header>
 
+<div class="dashboard-card">
+
+<h2>📊 Dashboard Statistics</h2>
+
+<div class="stats">
+
+<div class="stat-card">
+<h3>Total Bookings</h3>
+<h1 id="totalBookings">0</h1>
+</div>
+
+<div class="stat-card">
+<h3>Pending</h3>
+<h1 id="pendingBookings">0</h1>
+</div>
+
+<div class="stat-card">
+<h3>Completed</h3>
+<h1 id="completedBookings">0</h1>
+</div>
+
+</div>
+
+</div>
+
+</html>
+<h2>📋 Customer Bookings</h2>
+
+<table id="bookingTable">
+
+<footer>
+
+<p>© 2026 Lee Mobile Services</p>
+
+</footer>
+
+<script type="module" src="admin.js"></script>
+
+</body>
 </html>
