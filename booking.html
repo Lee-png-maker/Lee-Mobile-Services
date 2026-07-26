@@ -1,22 +1,84 @@
-<label>Customer Address</label>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service | Lee Mobile Services</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        <h1>Lee Mobile Services</h1>
+        <p>We Come To You</p>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="prices.html">Prices</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+<section class="booking-section">
+
+<div class="booking-container">
+
+<h2>📅 Book a Service</h2>
+
+<p>Please complete the form below and we will contact you shortly.</p>
+
+<form id="bookingForm">
+
+<label for="name">Full Name</label>
 
 <input
 type="text"
-id="address"
-placeholder="Enter your address"
+id="name"
+placeholder="Enter your full name"
 required>
 
-<button type="button" onclick="getLocation()">
-
-📍 Use My Current Location
-
-</button>
+<label for="phone">Phone Number</label>
 
 <input
-type="text"
-id="gpsLocation"
-placeholder="GPS Coordinates"
-readonly><select id="property">
+type="tel"
+id="phone"
+placeholder="Enter your phone number"
+required>
+
+<label for="email">Email Address</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email">
+
+<label for="service">Select Service</label>
+
+<select id="service" required>
+
+<option value="">Choose a Service</option>
+
+<option>Mobile Laundry</option>
+<option>Mobile Car Wash</option>
+<option>Home Cleaning</option>
+<option>Office Cleaning</option>
+<option>Plumbing</option>
+<option>Pool Cleaning</option>
+<option>Painting</option>
+<option>Home Renovations</option>
+
+</select>
+
+<label for="property">Property Type</label>
+
+<select id="property">
 
 <option>House</option>
 <option>Apartment</option>
@@ -25,7 +87,21 @@ readonly><select id="property">
 
 </select>
 
-<label>Service Address</label>
+<label for="bookingDate">Preferred Date</label>
+
+<input
+type="date"
+id="bookingDate"
+required>
+
+<label for="bookingTime">Preferred Time</label>
+
+<input
+type="time"
+id="bookingTime"
+required>
+
+<label for="address">Service Address</label>
 
 <input
 type="text"
@@ -41,72 +117,18 @@ id="locationBtn">
 
 </button>
 
-<label>Upload Photos (Optional)</label>
-
-<input
-type="file"
-id="photos"
-accept="image/*"
-multiple>
-
-<label>Special Instructions</label>
-
-<textarea
-id="notes"
-rows="5"
-placeholder="Describe your request..."></textarea>
-
-<h3>Payment Method</h3>
-
-<label>
-<input
-type="radio"
-name="payment"
-value="Cash"
-checked>
-Cash
-</label>
-
-<label>
-<input
-type="radio"
-name="payment"
-value="EFT">
-EFT
-</label>
-
-<label>
-<input
-type="radio"
-name="payment"
-value="Card">
-Card
-</label>
-
-<label>
-<input
-type="radio"
-name="payment"
-value="iKhokha">
-iKhokha
-</label>
-
 <br><br>
 
-<button
-type="submit"
-id="bookBtn">
-
-💬 Book on WhatsApp
-
-</button>
-
-</form<!-- ========================= -->
-<!-- Upload Photo -->
-<!-- ========================= -->
+<input
+type="text"
+id="gpsLocation"
+placeholder="GPS Coordinates"
+readonly>
 
 <label for="photo">
+
 📸 Upload a Photo (Optional)
+
 </label>
 
 <input
@@ -118,84 +140,97 @@ accept="image/*">
 id="preview"
 src=""
 alt="Photo Preview"
-style="
-display:none;
-width:100%;
-max-width:300px;
-margin-top:15px;
-border-radius:12px;
-border:2px solid #ddd;
-">
+style="display:none;max-width:250px;margin-top:15px;border-radius:10px;">
 
-<!-- ========================= -->
-<!-- Booking Date -->
-<!-- ========================= -->
+<label for="notes">
 
-<label for="bookingDate">
-📅 Preferred Date
+Special Instructions
+
 </label>
 
+<textarea
+id="notes"
+rows="5"
+placeholder="Describe your request..."></textarea>
+
+<h3>Payment Method</h3>
+
+<label>
+
 <input
-type="date"
-id="bookingDate"
-required>
+type="radio"
+name="payment"
+value="Cash"
+checked>
 
-<!-- ========================= -->
-<!-- Booking Time -->
-<!-- ========================= -->
+Cash
 
-<label for="bookingTime">
-🕒 Preferred Time
 </label>
 
+<br>
+
+<label>
+
 <input
-type="time"
-id="bookingTime"
-required>
+type="radio"
+name="payment"
+value="EFT">
 
-<!-- ========================= -->
-<!-- Customer Address -->
-<!-- ========================= -->
+EFT
 
-<label for="address">
-📍 Service Address
 </label>
 
+<br>
+
+<label>
+
 <input
-type="text"
-id="address"
-placeholder="Enter your address"
-required>
+type="radio"
+name="payment"
+value="Card">
+
+Card
+
+</label>
+
+<br>
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="iKhokha">
+
+iKhokha
+
+</label>
+
+<br><br>
 
 <button
-type="button"
-onclick="getLocation()">
+type="submit"
+class="primary-btn">
 
-📍 Use My Current Location
+📅 Submit Booking
 
 </button>
 
-<input
-type="text"
-id="gpsLocation"
-placeholder="GPS Coordinates"
-readonly>>
+</form>
+
+</div>
 
 </section>
 
 <footer>
 
-<p>
+<p>📞 068 868 5355</p>
 
-📞 068 868 5355
+<p>📧 info@leemobileservices.co.za</p>
 
-</p>
+<p>📍 Johannesburg • Pretoria • Midrand • Centurion • Tembisa</p>
 
-<p>
-
-© 2026 Lee Mobile Laundry, Car Wash & Cleaning Services
-
-</p>
+<p>© 2026 Lee Mobile Services. All Rights Reserved.</p>
 
 </footer>
 
