@@ -1,69 +1,127 @@
+// ===============================
+// Lee Mobile Services - booking.js
+// ===============================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { db, storage } from "./firebase.js";
 
 import {
-getFirestore,
-collection,
-addDoc
+  collection,
+  addDoc
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyA-Ik-sIZhg3ShrywwJif0It5PH6R17Mu0",
-  authDomain: "lee-mobile-services.firebaseapp.com",
-  projectId: "lee-mobile-services",
-  storageBucket: "lee-mobile-services.firebasestorage.app",
-  messagingSenderId: "507796082180",
-  appId: "1:507796082180:web:8df5734768f261f21b2f51",
-  measurementId: "G-S0Q2TGJJLP"
-};
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-storage.js";
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// Photo Preview
 
-const bookingForm = document.getElementById("bookingForm");
+const photoInput = document.getElementById("photo");
+const preview = document.getElementById("preview");
 
-bookingForm.addEventListener("submit", async function(e){
+if (photoInput) {
 
-e.preventDefault();
+  photoInput.addEventListener("change", () => {
 
-const booking = {
+    const file = photoInput.files[0];
 
-name: document.getElementById("name").value,
+    if (file) {
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = "block";
+    }
 
-phone: document.getElementById("phone").value,
-
-email: document.getElementById("email").value,
-
-service: document.getElementById("service").value,
-
-date: document.getElementById("date").value,
-
-time: document.getElementById("time").value,
-
-property: document.getElementById("property").value,
-
-address: document.getElementById("address").value,
-
-notes: document.getElementById("notes").value,
-
-createdAt: new Date()
-
-};
-
-try{
-
-await addDoc(collection(db,"bookings"),booking);
-
-alert("Booking saved successfully!");
-
-bookingForm.reset();
-
-}catch(error){
-
-alert("Error saving booking");
-
-console.log(error);
+  });
 
 }
 
+// Booking Form
+
+const bookingForm = document.getElementById("bookingForm");
+
+bookingForm.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  try {
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const address = document.getElementById("address").value;
+    const bookingDate = document.getElementById("bookingDate").value;
+    const bookingTime = document.getElementById("bookingTime").value;
+    const gpsLocation = document.getElementById("gpsLocation").value;
+
+    let photoURL = "";
+
+    const file = photoInput.files[0];
+
+    if (file) {
+
+      const storageRef = ref(
+        storage,
+        "bookings/" + Date.now() + "_" + file.name
+      );
+
+      await uploadBytes(storageRef, file);
+
+      photoURL = await getDownloadURL(storageRef);
+
+    }
+
+    await addDoc(collection(db, "bookings"), {
+
+      name: name,
+      phone: phone,
+      service: service,
+      address: address,
+      bookingDate: bookingDate,
+      bookingTime: bookingTime,
+      gpsLocation: gpsLocation,
+      photo: photoURL,
+      status: "Pending",
+      createdAt: new Date()
+
+    });
+
+    alert("✅ Booking submitted successfully!");
+
+    bookingForm.reset();
+
+    preview.style.display = "none";
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    alert("❌ Error saving booking.");
+
+  }
+
 });
+
+// GPS Location
+
+window.getLocation = function () {
+
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition((position) => {
+
+      document.getElementById("gpsLocation").value =
+        position.coords.latitude +
+        "," +
+        position.coords.longitude;
+
+    });
+
+  } else {
+
+    alert("Geolocation is not supported.");
+
+  }
+
+};
