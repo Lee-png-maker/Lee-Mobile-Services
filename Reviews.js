@@ -77,3 +77,43 @@ alert("Thank you for your review!");
 }
 
 loadReviews();
+<section id="reviews">
+
+<h2>Customer Reviews</h2>
+
+<form id="reviewForm">
+
+<input
+type="text"
+id="reviewName"
+placeholder="Your Name"
+required>
+
+<select id="reviewRating">
+
+<option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+<option value="4">⭐⭐⭐⭐ Very Good</option>
+<option value="3">⭐⭐⭐ Good</option>
+<option value="2">⭐⭐ Fair</option>
+<option value="1">⭐ Poor</option>
+
+</select>
+
+<textarea
+id="reviewComment"
+placeholder="Write your review..."
+required></textarea>
+
+<button type="submit">
+
+Submit Review
+
+</button>
+
+</form>
+
+<div id="reviewList"></div>
+
+</section>
+
+<script src="reviews.js"></script>
