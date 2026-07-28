@@ -281,83 +281,83 @@ section{
 section h2{
     font-size:28px;
 }
-
-}/* ==============================
+/* ==============================
    HERO VIDEO
 ============================== */
 
 .hero-video{
-position:relative;
-width:100%;
-height:90vh;
-overflow:hidden;
+    position:relative;
+    width:100%;
+    height:90vh;
+    overflow:hidden;
 }
 
 .background-video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .hero-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-color:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    color:#ffffff;
 }
 
 .hero-overlay h1{
-font-size:55px;
-margin-bottom:20px;
+    font-size:56px;
+    margin-bottom:20px;
 }
 
 .hero-overlay p{
-font-size:22px;
-max-width:900px;
-margin-bottom:30px;
-line-height:1.6;
+    font-size:22px;
+    max-width:900px;
+    margin-bottom:30px;
+    line-height:1.6;
 }
 
 .hero-buttons{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .hero-video{
-height:70vh;
+    height:70vh;
 }
 
 .hero-overlay h1{
-font-size:34px;
+    font-size:34px;
 }
 
 .hero-overlay p{
-font-size:17px;
+    font-size:18px;
 }
 
 .hero-buttons{
-flex-direction:column;
-width:100%;
-max-width:260px;
+    flex-direction:column;
+    width:100%;
+    max-width:280px;
 }
 
 .hero-buttons button{
-width:100%;
+    width:100%;
 }
 
+}
