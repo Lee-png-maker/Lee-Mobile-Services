@@ -85,7 +85,7 @@ bookingForm.addEventListener("submit", async (e) => {
 
     });
 
-    alert("✅ Booking submitted successfully!");
+    window.location.href = "confirmation.html";
 
     bookingForm.reset();
 
