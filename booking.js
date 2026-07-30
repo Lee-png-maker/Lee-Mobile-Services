@@ -102,22 +102,21 @@ bookingForm.addEventListener("submit", async (e) => {
     // Send Email
 
     await emailjs.send(
-      "service_vn8t8vf",
-      "template_q6x3tmq",
-      {
-        name: name,
-        phone: phone,
-        email: email,
-        service: service,
-        property: property,
-        address: address,
-        bookingDate: bookingDate,
-        bookingTime: bookingTime,
-        gpsLocation: gpsLocation,
-        notes: notes,
-        payment: payment
-      }
-    );
+  "service_vn8t8vf",
+  "template_q6x3tmq",
+  {
+    name: name,
+    phone: phone,
+    email: email,
+    service: service,
+    date: bookingDate,
+    time: bookingTime,
+    address: address,
+    property_type: property,
+    message: notes,
+    payment: payment
+  }
+);
 
     alert("✅ Booking submitted successfully!");
 
