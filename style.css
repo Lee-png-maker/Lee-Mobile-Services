@@ -1,352 +1,55 @@
-/* ==========================================
-   LEE MOBILE SERVICES
-   PROFESSIONAL WEBSITE STYLESHEET
-========================================== */
-
-/* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:Arial, Helvetica, sans-serif;
-background:#f4f7fb;
-color:#222;
-line-height:1.6;
-}
-
-/* HEADER */
-
+/* Mobile Header */
 .header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#0A66C2;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 20px;
-z-index:1000;
-box-shadow:0 2px 8px rgba(0,0,0,.2);
+    background:#1565c0;
+    color:#fff;
+    text-align:center;
+    padding:10px 15px;
 }
 
 .logo h1{
-color:#fff;
-font-size:30px;
+    font-size:28px;
+    margin:0;
 }
 
 .logo p{
-color:#fff;
-font-size:14px;
-margin-top:4px;
+    font-size:16px;
+    margin:4px 0 10px;
 }
 
 .navbar{
-display:flex;
-gap:18px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
 .navbar a{
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-padding:10px 14px;
-border-radius:8px;
-transition:.3s;
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    padding:4px 8px;
 }
 
-.navbar a:hover{
-background:#fff;
-color:#0A66C2;
-}
+/* Mobile */
+@media (max-width:768px){
 
-/* HERO VIDEO */
+    .header{
+        padding:8px;
+    }
 
-.hero-video{
-position:relative;
-width:100%;
-height:100vh;
-overflow:hidden;
-margin-top:80px;
-}
+    .logo h1{
+        font-size:24px;
+    }
 
-.background-video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-}
+    .logo p{
+        font-size:14px;
+        margin-bottom:8px;
+    }
 
-.hero-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.55);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-color:#fff;
-}
-
-.hero-overlay h1{
-font-size:60px;
-margin-bottom:20px;
-}
-
-.hero-overlay p{
-font-size:22px;
-max-width:900px;
-margin-bottom:35px;
-line-height:1.8;
-}
-
-.hero-buttons{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.primary-btn,
-.secondary-btn{
-padding:16px 35px;
-border:none;
-border-radius:50px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-
-.primary-btn{
-background:#00C853;
-color:#fff;
-}
-
-.primary-btn:hover{
-background:#009624;
-transform:scale(1.05);
-}
-
-.secondary-btn{
-background:#FFD600;
-color:#000;
-}
-
-.secondary-btn:hover{
-transform:scale(1.05);
-}
-
-/* SECTIONS */
-
-.services-preview{
-padding:80px 40px;
-text-align:center;
-}
-
-.services-preview h2{
-font-size:40px;
-margin-bottom:50px;
-color:#0A66C2;
-}
-
-/* CARDS */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-}
-
-.card{
-background:#fff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 6px 20px rgba(0,0,0,.12);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card h3{
-font-size:24px;
-margin-bottom:15px;
-color:#0A66C2;
-}
-
-.card p{
-font-size:17px;
-}
-
-/* BUTTONS */
-
-.btn{
-display:inline-block;
-padding:15px 30px;
-background:#00C853;
-color:#fff;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-transition:.3s;
-}
-
-.btn:hover{
-background:#009624;
-}
-
-/* TABLES */
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:30px;
-background:#fff;
-}
-
-th{
-background:#0A66C2;
-color:#fff;
-padding:15px;
-}
-
-td{
-padding:15px;
-border-bottom:1px solid #ddd;
-text-align:center;
-}
-
-/* WHATSAPP FLOAT */
-
-.whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-box-shadow:0 8px 20px rgba(0,0,0,.35);
-z-index:9999;
-transition:.3s;
-}
-
-.whatsapp-float:hover{
-transform:scale(1.1);
-}
-
-.whatsapp-float img{
-width:34px;
-height:34px;
-filter:invert(1);
-}
-
-/* FOOTER */
-
-footer{
-background:#111;
-color:#fff;
-text-align:center;
-padding:30px 20px;
-}
-
-footer p{
-margin:8px 0;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.header{
-flex-direction:column;
-padding:20px;
-gap:15px;
-}
-
-.logo h1{
-font-size:24px;
-text-align:center;
-}
-
-.logo p{
-text-align:center;
-}
-
-.navbar{
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-}
-
-.navbar a{
-font-size:14px;
-}
-
-.hero-video{
-height:75vh;
-margin-top:130px;
-}
-
-.hero-overlay h1{
-font-size:34px;
-}
-
-.hero-overlay p{
-font-size:18px;
-}
-
-.hero-buttons{
-flex-direction:column;
-width:100%;
-max-width:300px;
-}
-
-.primary-btn,
-.secondary-btn{
-width:100%;
-}
-
-.services-preview{
-padding:60px 20px;
-}
-
-.services-preview h2{
-font-size:30px;
-}
-
-.card{
-padding:25px;
-}
-
-.whatsapp-float{
-width:60px;
-height:60px;
-}
-
-.whatsapp-float img{
-width:30px;
-height:30px;
-}
+    .navbar a{
+        font-size:14px;
+        padding:2px 6px;
+    }
 
 }
