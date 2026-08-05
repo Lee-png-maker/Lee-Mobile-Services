@@ -65,21 +65,41 @@ body{
     background:white;
     color:#0A66C2;
 }
-
 /* =========================
-   HERO VIDEO
+   HERO
 ========================= */
 
-.hero-video{
-    position:relative;
-    height:85vh;
-    overflow:hidden;
+.hero{
+    background: linear-gradient(rgba(10,102,194,.75), rgba(10,102,194,.75));
+    min-height:420px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
 }
 
-.background-video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.hero-content{
+    max-width:800px;
+    color:#fff;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;  
 }
 
 .hero-overlay{
