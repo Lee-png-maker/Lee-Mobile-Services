@@ -70,10 +70,9 @@ body{
 ========================= */
 
 
-}.hero{
-    background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("file_00000000da94820e96ef27f436733ae8.png") center center/cover no-repeat;
+
+.hero{
+    background: linear-gradient(135deg, #0A66C2 0%, #1976D2 50%, #42A5F5 100%);
     min-height:420px;
     display:flex;
     justify-content:center;
