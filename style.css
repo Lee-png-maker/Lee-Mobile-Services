@@ -85,14 +85,18 @@ body{
 }
 
 .hero h1{
-    font-size:42px;
-    margin-bottom:20px;
+    font-size:58px;
+    color:#fff;
+    font-weight:700;
+    margin-bottom:15px;
 }
 
 .hero p{
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:30px;
+    color:#fff;
+    font-size:22px;
+    max-width:900px;
+    margin:auto;
+    margin-bottom:35px;
 }
 
 .hero-buttons{
@@ -100,30 +104,6 @@ body{
     justify-content:center;
     gap:15px;
     flex-wrap:wrap;  
-}
-
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    padding:20px;
-}
-
-.hero-overlay h1{
-    font-size:48px;
-    margin-bottom:20px;
-}
-
-.hero-overlay p{
-    max-width:900px;
-    font-size:22px;
-    margin-bottom:30px;
 }
 
 .hero-buttons{
@@ -134,30 +114,23 @@ body{
 
 .primary-btn,
 .secondary-btn{
+    display:inline-block;
     padding:15px 35px;
-    border:none;
-    border-radius:8px;
+    border-radius:10px;
+    text-decoration:none;
     font-size:18px;
     font-weight:bold;
-    cursor:pointer;
+    transition:.3s;
 }
 
 .primary-btn{
     background:#ff9800;
-    color:white;
-}
-
-.primary-btn:hover{
-    background:#e68900;
+    color:#fff;
 }
 
 .secondary-btn{
-    background:white;
+    background:#fff;
     color:#0A66C2;
-}
-
-.secondary-btn:hover{
-    background:#ececec;
 }
 
 /* =========================
@@ -179,19 +152,11 @@ body{
    CARDS
 ========================= */
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-    max-width:1200px;
-    margin:auto;
-}
-
 .card{
-    background:white;
-    border-radius:12px;
-    padding:25px;
-    box-shadow:0 8px 18px rgba(0,0,0,.1);
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
     transition:.3s;
 }
 
@@ -201,10 +166,12 @@ body{
 
 .card h3{
     color:#0A66C2;
+    font-size:22px;
     margin-bottom:15px;
 }
 
 .card p{
+    font-size:20px;
     color:#555;
 }
 
