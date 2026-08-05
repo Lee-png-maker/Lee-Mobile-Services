@@ -70,9 +70,8 @@ body{
 ========================= */
 
 
-
 .hero{
-    background: linear-gradient(135deg, #0A66C2 0%, #1976D2 50%, #42A5F5 100%);
+    background: linear-gradient(rgba(10,102,194,.90), rgba(10,102,194,.90));
     min-height:420px;
     display:flex;
     justify-content:center;
