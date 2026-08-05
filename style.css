@@ -73,7 +73,7 @@ body{
 }.hero{
     background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("lee-van.png") center center/cover no-repeat;
+        url("file_00000000da94820e96ef27f436733ae8.png") center center/cover no-repeat;
     min-height:420px;
     display:flex;
     justify-content:center;
