@@ -152,6 +152,14 @@ body{
    CARDS
 ========================= */
 
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    max-width:1200px;
+    margin:0 auto;
+}
+
 .card{
     background:#fff;
     border-radius:18px;
@@ -160,19 +168,21 @@ body{
     transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-8px);
+.cards{
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.card{
+    padding:15px;
 }
 
 .card h3{
-    color:#0A66C2;
-    font-size:22px;
-    margin-bottom:15px;
+    font-size:16px;
 }
 
 .card p{
-    font-size:20px;
-    color:#555;
+    font-size:16px;
 }
 
 /* =========================
@@ -232,18 +242,6 @@ display:flex;
 
 .logo h1{
 font-size:28px;
-}
-
-.hero-video{
-height:70vh;
-}
-
-.hero-overlay h1{
-font-size:32px;
-}
-
-.hero-overlay p{
-font-size:18px;
 }
 
 .hero-buttons{
