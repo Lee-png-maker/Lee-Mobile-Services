@@ -1,16 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Membership | Lee Mobile Services</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
-<header>
-    <!-- Copy the same header/navbar from index.html -->
+<header class="header">
+
+<div class="logo">
+<h1>LEE</h1>
+<h2>MOBILE SERVICES</h2>
+<p>WE COME TO YOU</p>
+</div>
+
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="prices.html">Prices</a>
+<a href="booking.html">Book Now</a>
+<a href="membership.html" class="active">Membership</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 </header>
 
-<section class="membership">
+<section class="hero">
 
-<h1>Join Lee Mobile Services Membership</h1>
+<div class="hero-content">
 
-<p>Become a Lee Member and enjoy exclusive benefits.</p>
+<h1>Become a Lee Mobile Member</h1>
 
-<form id="membershipForm">
+<p>
+Enjoy exclusive discounts, priority bookings and premium customer benefits.
+</p>
+
+<a href="#join">
+<button class="primary-btn">
+⭐ Join Today
+</button>
+</a>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<h2>Membership Benefits</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>⭐ Priority Booking</h3>
+<p>Members receive faster booking and service scheduling.</p>
+</div>
+
+<div class="service-card">
+<h3>💰 Exclusive Discounts</h3>
+<p>Save money on selected Lee Mobile Services.</p>
+</div>
+
+<div class="service-card">
+<h3>🎁 Monthly Specials</h3>
+<p>Receive exclusive member-only promotions.</p>
+</div>
+
+<div class="service-card">
+<h3>📞 VIP Support</h3>
+<p>Dedicated WhatsApp and phone support.</p>
+</div>
+
+<div class="service-card">
+<h3>🎂 Birthday Rewards</h3>
+<p>Special birthday discounts and gifts.</p>
+</div>
+
+<div class="service-card">
+<h3>🏆 Loyalty Rewards</h3>
+<p>Earn rewards every time you use our services.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<h2>Membership Plans</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>🥉 Bronze</h3>
+<p>R49 per month</p>
+<ul>
+<li>5% Discount</li>
+<li>Monthly Specials</li>
+<li>Member Support</li>
+</ul>
+</div>
+
+<div class="service-card">
+<h3>🥈 Silver</h3>
+<p>R99 per month</p>
+<ul>
+<li>10% Discount</li>
+<li>Priority Booking</li>
+<li>Free Quotations</li>
+</ul>
+</div>
+
+<div class="service-card">
+<h3>🥇 Gold</h3>
+<p>R199 per month</p>
+<ul>
+<li>15% Discount</li>
+<li>Emergency Assistance</li>
+<li>VIP Booking</li>
+</ul>
+</div>
+
+<div class="service-card">
+<h3>💎 Platinum</h3>
+<p>R399 per month</p>
+<ul>
+<li>20% Discount</li>
+<li>Highest Priority</li>
+<li>Dedicated Support</li>
+<li>Exclusive Offers</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="join">
+
+<h2>Join Lee Mobile Services</h2>
+
+<p>Complete the form below to become a Lee Mobile Member.</p>
+
+<form class="booking-form">
 
 <input type="text" placeholder="Full Name" required>
 
@@ -21,23 +159,70 @@
 <input type="text" placeholder="Home Address">
 
 <select required>
-<option value="">Select Membership Plan</option>
-<option>Bronze - R49/month</option>
-<option>Silver - R99/month</option>
-<option>Gold - R199/month</option>
-<option>Platinum - R399/month</option>
+<option value="">Choose Membership</option>
+<option>🥉 Bronze - R49/month</option>
+<option>🥈 Silver - R99/month</option>
+<option>🥇 Gold - R199/month</option>
+<option>💎 Platinum - R399/month</option>
 </select>
 
-<button type="submit">
-Join Membership
+<textarea
+placeholder="Tell us why you want to become a member (Optional)"
+rows="5"></textarea>
+
+<button class="primary-btn" type="submit">
+⭐ Become a Member
 </button>
 
 </form>
 
 </section>
 
+<section class="services">
+
+<h2>Why Join Lee Mobile Services?</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>🚗 We Come To You</h3>
+<p>No need to travel. We provide services at your home or workplace.</p>
+</div>
+
+<div class="service-card">
+<h3>👨‍🔧 Professional Team</h3>
+<p>Friendly, experienced and reliable staff.</p>
+</div>
+
+<div class="service-card">
+<h3>📍 Wide Service Area</h3>
+<p>Johannesburg, Pretoria, Midrand, Centurion and Tembisa.</p>
+</div>
+
+<div class="service-card">
+<h3>📱 Easy Booking</h3>
+<p>Book online, by WhatsApp or by phone.</p>
+</div>
+
+</div>
+
+</section>
+
 <footer>
-    <!-- Copy the same footer from index.html -->
+
+<p><strong>Lee Mobile Services</strong></p>
+
+<p>📞 068 868 5355</p>
+
+<p>📧 leemobilebusiness@gmail.com</p>
+
+<p>📍 Johannesburg • Pretoria • Midrand • Centurion • Tembisa</p>
+
+<p>© 2026 Lee Mobile Services. All Rights Reserved.</p>
+
 </footer>
 
+<script src="script.js"></script>
+
 </body>
+</html>
