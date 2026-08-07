@@ -398,27 +398,35 @@ FOOTER
 
 </footer>
 
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
 <script src="script.js"></script>
+
+<!-- =========================
+SERVICE WORKER / PWA
+========================= -->
 
 <script>
 if ("serviceWorker" in navigator) {
 
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
 
         navigator.serviceWorker
             .register("./sw.js")
-            .then(function(registration) {
+            .then(function (registration) {
 
                 console.log(
-                    "Lee Mobile Services Service Worker registered:",
+                    "Lee Mobile Services Service Worker registered successfully:",
                     registration.scope
                 );
 
             })
-            .catch(function(error) {
+            .catch(function (error) {
 
                 console.error(
-                    "Service Worker registration failed:",
+                    "Lee Mobile Services Service Worker registration failed:",
                     error
                 );
 
@@ -431,6 +439,3 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
-    
-</body>
-</footer>
