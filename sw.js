@@ -1,77 +1,76 @@
-const CACHE_NAME = "lee-mobile-v2";
+const CACHE_NAME = "lee-mobile-services-v3";
 
-const APP_FILES = [
-  "./",
-  "./index.html",
-  "./services.html",
-  "./prices.html",
-  "./booking.html",
-  "./membership.html",
-  "./about.html",
-  "./contact.html",
-  "./confirmation.html",
-  "./login.html",
-  "./admin.html",
-  "./style.css",
-  "./script.js",
-  "./booking.js",
-  "./membership.js",
-  "./price.js",
-  "./reviews.js",
-  "./firebase.js",
-  "./auth.js",
-  "./manifest.json"
+const FILES_TO_CACHE = [
+    "./",
+    "./index.html",
+    "./style.css",
+    "./script.js",
+    "./manifest.json"
 ];
 
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(APP_FILES);
-    })
-  );
+self.addEventListener("install", event => {
 
-  self.skipWaiting();
+    self.skipWaiting();
+
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(FILES_TO_CACHE))
+    );
+
 });
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => caches.delete(name))
-      );
-    })
-  );
 
-  self.clients.claim();
+self.addEventListener("activate", event => {
+
+    event.waitUntil(
+
+        caches.keys().then(cacheNames => {
+
+            return Promise.all(
+
+                cacheNames.map(cacheName => {
+
+                    if (cacheName !== CACHE_NAME) {
+
+                        return caches.delete(cacheName);
+
+                    }
+
+                })
+
+            );
+
+        }).then(() => self.clients.claim())
+
+    );
+
 });
 
-self.addEventListener("fetch", (event) => {
 
-  if (
-    event.request.url.includes("firebaseio.com") ||
-    event.request.url.includes("googleapis.com") ||
-    event.request.url.includes("gstatic.com") ||
-    event.request.url.includes("emailjs.com") ||
-    event.request.url.includes("cdn.jsdelivr.net")
-  ) {
-    return;
-  }
+self.addEventListener("fetch", event => {
 
-  event.respondWith(
-    caches.match(event.request)
-      .then((cachedResponse) => {
+    event.respondWith(
 
-        if (cachedResponse) {
-          return cachedResponse;
-        }
+        fetch(event.request)
+            .then(response => {
 
-        return fetch(event.request);
+                const responseClone = response.clone();
 
-      })
-      .catch(() => {
-        return caches.match("./index.html");
-      })
-  );
+                caches.open(CACHE_NAME).then(cache => {
+
+                    cache.put(event.request, responseClone);
+
+                });
+
+                return response;
+
+            })
+            .catch(() => {
+
+                return caches.match(event.request);
+
+            })
+
+    );
+
 });
