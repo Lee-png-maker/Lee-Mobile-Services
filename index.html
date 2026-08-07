@@ -440,6 +440,24 @@ FOOTER
 
 <script src="script.js"></script>
 
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker
+            .register("sw.js")
+            .then(function() {
+                console.log("Service Worker registered successfully.");
+            })
+            .catch(function(error) {
+                console.error("Service Worker registration failed:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>
+
 </body>
 
 </html>
