@@ -127,23 +127,22 @@ type="time"
 id="bookingTime"
 required>
 
-<label for="address">Service Address</label>
+<label for="gpsLocation">📍 GPS Location</label>
 
 <input
-type="text"
-id="address"
-placeholder="Enter full address"
-required>
+    type="text"
+    id="gpsLocation"
+    name="gpsLocation"
+    placeholder="GPS location"
+    readonly
+>
 
-<button
-type="button"
-id="locationBtn">
-
-📍 Use My Current Location
-
-</button><br><br>
-
-<input
+<button type="button" onclick="getLocation()">
+    📍 Use My Current Location
+    
+</button>
+    
+<input>
 type="text"
 id="gpsLocation"
 placeholder="GPS Coordinates"
