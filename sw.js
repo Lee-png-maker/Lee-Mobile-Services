@@ -1,4 +1,4 @@
-const CACHE_NAME = "lee-mobile-v2";
+const CACHE_NAME = "lee-mobile-v3";
 
 const APP_FILES = [
 "./",
@@ -12,6 +12,7 @@ const APP_FILES = [
 "./confirmation.html",
 "./login.html",
 "./admin.html",
+
 "./style.css",
 "./script.js",
 "./booking.js",
@@ -20,20 +21,25 @@ const APP_FILES = [
 "./reviews.js",
 "./firebase.js",
 "./auth.js",
+
 "./manifest.json"
+
 ];
 
-// Install
-self.addEventListener("install", (event) => {
+// ===============================
+// INSTALL
+// ===============================
+
+self.addEventListener("install", function(event) {
 
 event.waitUntil(
 
-caches.open(CACHE_NAME)
-  .then((cache) => {
+    caches.open(CACHE_NAME)
+        .then(function(cache) {
 
-    return cache.addAll(APP_FILES);
+            return cache.addAll(APP_FILES);
 
-  })
+        })
 
 );
 
@@ -41,22 +47,34 @@ self.skipWaiting();
 
 });
 
-// Activate
-self.addEventListener("activate", (event) => {
+// ===============================
+// ACTIVATE
+// ===============================
+
+self.addEventListener("activate", function(event) {
 
 event.waitUntil(
 
-caches.keys().then((cacheNames) => {
+    caches.keys()
+        .then(function(cacheNames) {
 
-  return Promise.all(
+            return Promise.all(
 
-    cacheNames
-      .filter((name) => name !== CACHE_NAME)
-      .map((name) => caches.delete(name))
+                cacheNames
+                    .filter(function(name) {
 
-  );
+                        return name !== CACHE_NAME;
 
-})
+                    })
+                    .map(function(name) {
+
+                        return caches.delete(name);
+
+                    })
+
+            );
+
+        })
 
 );
 
@@ -64,46 +82,69 @@ self.clients.claim();
 
 });
 
-// Fetch
-self.addEventListener("fetch", (event) => {
+// ===============================
+// FETCH
+// ===============================
 
-// Don't intercept Firebase, EmailJS or external services
+self.addEventListener("fetch", function(event) {
+
+// Only handle GET requests
+if (event.request.method !== "GET") {
+    return;
+}
+
+
+// Don't intercept external services
+const url = event.request.url;
+
 if (
-event.request.url.includes("firebaseio.com") ||
-event.request.url.includes("googleapis.com") ||
-event.request.url.includes("gstatic.com") ||
-event.request.url.includes("emailjs.com") ||
-event.request.url.includes("cdn.jsdelivr.net")
+    url.includes("firebaseio.com") ||
+    url.includes("googleapis.com") ||
+    url.includes("gstatic.com") ||
+    url.includes("emailjs.com") ||
+    url.includes("cdn.jsdelivr.net")
 ) {
 
-return;
+    return;
 
 }
 
+
 event.respondWith(
 
-caches.match(event.request)
-  .then((cachedResponse) => {
+    caches.match(event.request)
 
-    if (cachedResponse) {
+        .then(function(cachedResponse) {
 
-      return cachedResponse;
+            // Use cached file if available
+            if (cachedResponse) {
 
-    }
+                return cachedResponse;
 
-    return fetch(event.request)
-      .then((networkResponse) => {
+            }
 
-        return networkResponse;
+            // Otherwise request it from the network
+            return fetch(event.request)
 
-      });
+                .then(function(networkResponse) {
 
-  })
-  .catch(() => {
+                    return networkResponse;
 
-    return caches.match("./index.html");
+                });
 
-  })
+        })
+
+        .catch(function() {
+
+            // If navigation fails while offline,
+            // show the homepage
+            if (event.request.mode === "navigate") {
+
+                return caches.match("./index.html");
+
+            }
+
+        })
 
 );
 
