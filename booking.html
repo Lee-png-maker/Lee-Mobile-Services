@@ -1,239 +1,819 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Book a Service | Lee Mobile Services</title>
 
-<link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    .payment-box {
-        margin-top: 20px;
-        padding: 18px;
-        border-radius: 12px;
-        background: #f4f8ff;
-        border: 1px solid #d7e5ff;
-    }
+    <title>Book a Service | Lee Mobile Services</title>
 
-    .yoco-btn {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 14px 22px;
-        background: #0066ff;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-    }
+    <meta
+        name="description"
+        content="Book professional mobile services from Lee Mobile Services."
+    >
 
-    .yoco-btn:hover {
-        background: #0052cc;
-    }
+    <meta name="theme-color" content="#0A66C2">
 
-    .payment-note {
-        font-size: 14px;
-        margin-top: 10px;
-        color: #555;
-    }
-</style>
+    <link rel="stylesheet" href="style.css">
 
-</head><body><header class="header"><div class="logo">
-    <h1>Lee Mobile Services</h1>
-    <p>We Come To You</p>
-</div>
+    <link rel="manifest" href="manifest.json">
 
-<nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="prices.html">Prices</a>
-    <a href="contact.html">Contact</a>
-</nav>
+    <style>
 
-</header><section class="booking-section"><div class="booking-container"><h2>📅 Book a Service</h2><p>Please complete the form below and we will contact you shortly.</p><form id="bookingForm"><label for="name">Full Name</label>
+        .booking-section {
+            padding: 30px 15px;
+        }
 
-<input
-type="text"
-id="name"
-placeholder="Enter your full name"
-required>
+        .booking-container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
 
-<label for="phone">Phone Number</label>
+        .booking-container h2 {
+            color: #0A66C2;
+            margin-bottom: 8px;
+        }
 
-<input
-type="tel"
-id="phone"
-placeholder="Enter your phone number"
-required>
+        .booking-container label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
 
-<label for="email">Email Address</label>
+        .booking-container input,
+        .booking-container select,
+        .booking-container textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
 
-<input
-type="email"
-id="email"
-placeholder="Enter your email">
+        .booking-container textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
 
-<label for="service">Select Service</label>
+        .gps-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-<select id="service" required><option value="">Choose a Service</option><option>Mobile Laundry</option>
-<option>Mobile Car Wash</option>
-<option>Home Cleaning</option>
-<option>Office Cleaning</option>
-<option>Plumbing</option>
-<option>Pool Cleaning</option>
-<option>Painting</option>
-<option>Home Renovations</option>
-<option>Window Cleaning</option>
-<option>Couch Cleaning</option>
-<option>Mattress Cleaning</option>
-<option>Dog Wash</option>
-<option>Dog Grooming</option>
-<option>Gardening</option>
-<option>Landscaping</option>
-<option>Lawn Mower Repair</option>
-<option>Lawn Cutting</option>
-<option>Tiling</option>
-<option>Ceilings</option>
-<option>Flooring</option>
-<option>Interior Design</option>
-<option>Shoe Cleaning</option>
-<option>Grocery Delivery</option>
-<option>Water Delivery</option>
-<option>Toilet Paper Delivery</option>
-<option>Rubbish Removal</option>
-<option>Pet Sitting</option>
-<option>Personal Driver (Your Car)</option>
-<option>Chauffeur Service (Our Vehicle)</option>
-<option>Family Transportation</option>
-<option>Child Transportation</option>
-<option>Old Age Transportation</option>
-<option>Driving Service</option></select><label for="property">Property Type</label>
+        .gps-row input {
+            flex: 1;
+        }
 
-<select id="property"><option>House</option>
-<option>Apartment</option>
-<option>Office</option>
-<option>Business</option></select><label for="bookingDate">Preferred Date</label>
+        .gps-button {
+            padding: 12px 14px;
+            border: none;
+            border-radius: 7px;
+            background: #0A66C2;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
 
-<input
-type="date"
-id="bookingDate"
-required>
+        .gps-button:hover {
+            background: #084f96;
+        }
 
-<label for="bookingTime">Preferred Time</label>
+        .payment-box {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f4f8ff;
+            border: 1px solid #d7e5ff;
+        }
 
-<input
-type="time"
-id="bookingTime"
-required>
+        .payment-box h3 {
+            margin-top: 0;
+            color: #0A66C2;
+        }
 
-<label for="gpsLocation">📍 GPS Location</label>
+        .payment-option {
+            margin: 10px 0;
+        }
 
-<input
-    type="text"
-    id="gpsLocation"
-    name="gpsLocation"
-    placeholder="GPS location"
-    readonly
+        .payment-option label {
+            display: inline;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .payment-option input {
+            width: auto;
+            margin-right: 7px;
+        }
+
+        .payment-note {
+            font-size: 14px;
+            color: #555;
+            margin-top: 12px;
+        }
+
+        .yoco-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 14px 20px;
+            background: #0066ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #e68900;
+        }
+
+        .location-note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+
+            .booking-container {
+                padding: 18px;
+            }
+
+            .gps-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .gps-button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <h1>Lee Mobile Services</h1>
+
+        <p>We Come To You</p>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <a href="index.html">Home</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="prices.html">Prices</a>
+
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+BOOKING SECTION
+========================= -->
+
+<section class="booking-section">
+
+    <div class="booking-container">
+
+        <h2>📅 Book a Service</h2>
+
+        <p>
+            Please complete the form below and we will contact you shortly.
+        </p>
+
+
+        <!-- =========================
+        BOOKING FORM
+        ========================= -->
+
+        <form id="bookingForm">
+
+
+            <!-- FULL NAME -->
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+
+            <!-- PHONE -->
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+
+            <!-- EMAIL -->
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+            >
+
+
+            <!-- SERVICE -->
+
+            <label for="service">
+                Select Service
+            </label>
+
+            <select
+                id="service"
+                name="service"
+                required
+            >
+
+                <option value="">
+                    Choose a Service
+                </option>
+
+                <option>Mobile Laundry</option>
+
+                <option>Mobile Car Wash</option>
+
+                <option>Home Cleaning</option>
+
+                <option>Office Cleaning</option>
+
+                <option>Apartment Cleaning</option>
+
+                <option>Plumbing</option>
+
+                <option>Pool Cleaning</option>
+
+                <option>Painting</option>
+
+                <option>Home Renovations</option>
+
+                <option>Window Cleaning</option>
+
+                <option>Couch Cleaning</option>
+
+                <option>Mattress Cleaning</option>
+
+                <option>Dog Wash</option>
+
+                <option>Dog Grooming</option>
+
+                <option>Gardening</option>
+
+                <option>Landscaping</option>
+
+                <option>Lawn Mower Repair</option>
+
+                <option>Lawn Cutting</option>
+
+                <option>Tiling</option>
+
+                <option>Ceilings</option>
+
+                <option>Flooring</option>
+
+                <option>Interior Design</option>
+
+                <option>Shoe Cleaning</option>
+
+                <option>Grocery Delivery</option>
+
+                <option>Water Delivery</option>
+
+                <option>Toilet Paper Delivery</option>
+
+                <option>Rubbish Removal</option>
+
+                <option>Parcel Delivery</option>
+
+                <option>Furniture Moving</option>
+
+                <option>Moving Assistance</option>
+
+                <option>Pet Sitting</option>
+
+                <option>Pet Care</option>
+
+                <option>House Sitting</option>
+
+                <option>Gutter Cleaning</option>
+
+                <option>Electrical Repairs</option>
+
+                <option>Handyman Services</option>
+
+                <option>Personal Driver (Your Car)</option>
+
+                <option>Chauffeur Service (Our Vehicle)</option>
+
+                <option>Family Transportation</option>
+
+                <option>Child Transportation</option>
+
+                <option>Old Age Transportation</option>
+
+                <option>Driving Service</option>
+
+                <option>Family Care Services</option>
+
+            </select>
+
+
+            <!-- PROPERTY TYPE -->
+
+            <label for="property">
+                Property Type
+            </label>
+
+            <select
+                id="property"
+                name="property"
+                required
+            >
+
+                <option value="House">
+                    House
+                </option>
+
+                <option value="Apartment">
+                    Apartment
+                </option>
+
+                <option value="Office">
+                    Office
+                </option>
+
+                <option value="Business">
+                    Business
+                </option>
+
+            </select>
+
+
+            <!-- DATE -->
+
+            <label for="bookingDate">
+                Preferred Date
+            </label>
+
+            <input
+                type="date"
+                id="bookingDate"
+                name="bookingDate"
+                required
+            >
+
+
+            <!-- TIME -->
+
+            <label for="bookingTime">
+                Preferred Time
+            </label>
+
+            <input
+                type="time"
+                id="bookingTime"
+                name="bookingTime"
+                required
+            >
+
+
+            <!-- GPS LOCATION -->
+
+            <label for="gpsLocation">
+                📍 GPS Location
+            </label>
+
+            <div class="gps-row">
+
+                <input
+                    type="text"
+                    id="gpsLocation"
+                    name="gpsLocation"
+                    placeholder="GPS coordinates will appear here"
+                    readonly
+                >
+
+                <button
+                    type="button"
+                    class="gps-button"
+                    onclick="getLocation()"
+                >
+                    📍 Use My Current Location
+                </button>
+
+            </div>
+
+            <p class="location-note">
+                Tap the button to automatically get your current GPS location.
+            </p>
+
+
+            <!-- ADDRESS -->
+
+            <label for="location">
+                Service Address
+            </label>
+
+            <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Enter the address where the service is needed"
+                required
+            >
+
+
+            <!-- PHOTO -->
+
+            <label for="photo">
+                📷 Upload a Photo (Optional)
+            </label>
+
+            <input
+                type="file"
+                id="photo"
+                name="photo"
+                accept="image/*"
+            >
+
+
+            <!-- SPECIAL INSTRUCTIONS -->
+
+            <label for="instructions">
+                Special Instructions
+            </label>
+
+            <textarea
+                id="instructions"
+                name="instructions"
+                placeholder="Describe anything we should know about your booking..."
+            ></textarea>
+
+
+            <!-- =========================
+            PAYMENT
+            ========================= -->
+
+            <div class="payment-box">
+
+                <h3>
+                    💳 Payment Method
+                </h3>
+
+
+                <div class="payment-option">
+
+                    <input
+                        type="radio"
+                        id="cash"
+                        name="paymentMethod"
+                        value="Cash"
+                        checked
+                    >
+
+                    <label for="cash">
+                        Cash
+                    </label>
+
+                </div>
+
+
+                <div class="payment-option">
+
+                    <input
+                        type="radio"
+                        id="eft"
+                        name="paymentMethod"
+                        value="EFT"
+                    >
+
+                    <label for="eft">
+                        EFT
+                    </label>
+
+                </div>
+
+
+                <div class="payment-option">
+
+                    <input
+                        type="radio"
+                        id="yoco"
+                        name="paymentMethod"
+                        value="Yoco"
+                    >
+
+                    <label for="yoco">
+                        Yoco
+                    </label>
+
+                </div>
+
+
+                <div class="payment-option">
+
+                    <input
+                        type="radio"
+                        id="ikhokha"
+                        name="paymentMethod"
+                        value="iKhokha"
+                    >
+
+                    <label for="ikhokha">
+                        iKhokha
+                    </label>
+
+                </div>
+
+
+                <p class="payment-note">
+                    Payment instructions will be provided after your booking
+                    is reviewed.
+                </p>
+
+
+                <!--
+                IMPORTANT:
+                Do not put a fake Yoco payment link here.
+                Add your real Yoco payment link when you have one.
+                -->
+
+                <a
+                    href="#"
+                    class="yoco-btn"
+                    id="yocoPaymentButton"
+                    onclick="return false;"
+                >
+                    💳 Pay with Yoco
+                </a>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                📅 Submit Booking
+            </button>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+WHATSAPP
+========================= -->
+
+<a
+    href="https://wa.me/27688685355"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact Lee Mobile Services on WhatsApp"
 >
 
-<button type="button" onclick="getLocation()">
-    📍 Use My Current Location
-    
-</button>
-    
-<input>
-type="text"
-id="gpsLocation"
-placeholder="GPS Coordinates"
-readonly>
+    💬
 
-<label for="photo">📸 Upload a Photo (Optional)
-
-</label><input
-type="file"
-id="photo"
-accept="image/*">
-
-<img
-id="preview"
-src=""
-alt="Photo Preview"
-style="display:none;max-width:250px;margin-top:15px;border-radius:10px;">
-
-<label for="notes">Special Instructions
-
-</label><textarea
-id="notes"
-rows="5"
-placeholder="Describe your request..."></textarea><div class="payment-box"><h3>💳 Payment Method</h3><label>
-<input
-type="radio"
-name="payment"
-value="Cash"
-checked>Cash
-</label>
-
-<br><label>
-<input
-type="radio"
-name="payment"
-value="EFT">EFT
-</label>
-
-<br><label>
-<input
-type="radio"
-name="payment"
-value="Yoco">Yoco
-</label>
-
-<br><label>
-<input
-type="radio"
-name="payment"
-value="iKhokha">iKhokha
-</label>
-
-<p class="payment-note">
-For Yoco payments, click the button below to pay securely.
-</p><a
-href="https://pay.yoco.com/yengwayo-llnts-5"
-target="_blank"
-rel="noopener noreferrer"
-class="yoco-btn">
-
-💳 Pay with Yoco
-
-</a></div><br><br>
-
-<button
-type="submit"
-class="primary-btn">
-
-📅 Submit Booking
-
-</button></form></div></section><footer><p>📞 068 868 5355</p><p>
-📧
-<a href="mailto:leemobilebusiness@gmail.com">
-leemobilebusiness@gmail.com
 </a>
-</p><p>
-📍 Johannesburg • Pretoria • Midrand • Centurion • Tembisa
-</p><p>
-© 2026 Lee Mobile Services. All Rights Reserved.
-</p></footer><script src="price.js"></script><!-- EmailJS --><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script>
 
-(function () {
 
-    emailjs.init({
-        publicKey: "Y8dwbI_Kqo7m_GwFA"
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        &copy; 2026 Lee Mobile Services.
+        All Rights Reserved.
+    </p>
+
+    <p>
+        Professional Mobile Services Across South Africa.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+BOOKING JAVASCRIPT
+========================= -->
+
+<script src="script.js"></script>
+
+<script src="booking.js"></script>
+
+
+<!-- =========================
+GPS LOCATION
+========================= -->
+
+<script>
+
+function getLocation() {
+
+    const gpsInput = document.getElementById("gpsLocation");
+
+    if (!navigator.geolocation) {
+
+        alert(
+            "Geolocation is not supported by your browser."
+        );
+
+        return;
+
+    }
+
+
+    gpsInput.value = "Getting your location...";
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude =
+                position.coords.latitude;
+
+            const longitude =
+                position.coords.longitude;
+
+
+            gpsInput.value =
+                latitude + "," + longitude;
+
+
+            console.log(
+                "GPS Location:",
+                latitude,
+                longitude
+            );
+
+        },
+
+
+        function(error) {
+
+            gpsInput.value = "";
+
+
+            if (error.code === 1) {
+
+                alert(
+                    "Location permission was denied. Please allow location access in your browser settings."
+                );
+
+            }
+
+            else if (error.code === 2) {
+
+                alert(
+                    "Your location could not be determined. Please try again."
+                );
+
+            }
+
+            else if (error.code === 3) {
+
+                alert(
+                    "Location request timed out. Please try again."
+                );
+
+            }
+
+            else {
+
+                alert(
+                    "Unable to get your location."
+                );
+
+            }
+
+        },
+
+
+        {
+            enableHighAccuracy: true,
+            timeout: 15000,
+            maximumAge: 0
+        }
+
+    );
+
+}
+
+</script>
+
+
+<!-- =========================
+SERVICE WORKER
+========================= -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function() {
+
+        navigator.serviceWorker
+            .register("./sw.js")
+            .then(function(registration) {
+
+                console.log(
+                    "Lee Mobile Services Service Worker registered:",
+                    registration.scope
+                );
+
+            })
+            .catch(function(error) {
+
+                console.error(
+                    "Service Worker registration failed:",
+                    error
+                );
+
+            });
+
     });
 
-})();
+}
 
-</script><!-- Booking Script --><script
-type="module"
-src="booking.js">
-</script></body>
+</script>
+
+
+</body>
 </html>
