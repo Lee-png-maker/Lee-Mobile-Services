@@ -1,42 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Service | Lee Mobile Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Book a Service | Lee Mobile Services</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+<link rel="stylesheet" href="style.css">
 
-<body>
+<style>
+    .payment-box {
+        margin-top: 20px;
+        padding: 18px;
+        border-radius: 12px;
+        background: #f4f8ff;
+        border: 1px solid #d7e5ff;
+    }
 
-<header class="header">
+    .yoco-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 14px 22px;
+        background: #0066ff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-    <div class="logo">
-        <h1>Lee Mobile Services</h1>
-        <p>We Come To You</p>
-    </div>
+    .yoco-btn:hover {
+        background: #0052cc;
+    }
 
-    <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="prices.html">Prices</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+    .payment-note {
+        font-size: 14px;
+        margin-top: 10px;
+        color: #555;
+    }
+</style>
 
-</header>
+</head><body><header class="header"><div class="logo">
+    <h1>Lee Mobile Services</h1>
+    <p>We Come To You</p>
+</div>
 
-<section class="booking-section">
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="prices.html">Prices</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-<div class="booking-container">
-
-<h2>📅 Book a Service</h2>
-
-<p>Please complete the form below and we will contact you shortly.</p>
-
-<form id="bookingForm">
-
-<label for="name">Full Name</label>
+</header><section class="booking-section"><div class="booking-container"><h2>📅 Book a Service</h2><p>Please complete the form below and we will contact you shortly.</p><form id="bookingForm"><label for="name">Full Name</label>
 
 <input
 type="text"
@@ -61,11 +76,7 @@ placeholder="Enter your email">
 
 <label for="service">Select Service</label>
 
-<select id="service" required>
-
-<option value="">Choose a Service</option>
-
-<option>Mobile Laundry</option>
+<select id="service" required><option value="">Choose a Service</option><option>Mobile Laundry</option>
 <option>Mobile Car Wash</option>
 <option>Home Cleaning</option>
 <option>Office Cleaning</option>
@@ -73,21 +84,36 @@ placeholder="Enter your email">
 <option>Pool Cleaning</option>
 <option>Painting</option>
 <option>Home Renovations</option>
+<option>Window Cleaning</option>
+<option>Couch Cleaning</option>
+<option>Mattress Cleaning</option>
+<option>Dog Wash</option>
+<option>Dog Grooming</option>
+<option>Gardening</option>
+<option>Landscaping</option>
+<option>Lawn Mower Repair</option>
+<option>Lawn Cutting</option>
+<option>Tiling</option>
+<option>Ceilings</option>
+<option>Flooring</option>
+<option>Interior Design</option>
+<option>Shoe Cleaning</option>
+<option>Grocery Delivery</option>
+<option>Water Delivery</option>
+<option>Toilet Paper Delivery</option>
+<option>Rubbish Removal</option>
+<option>Pet Sitting</option>
+<option>Personal Driver (Your Car)</option>
+<option>Chauffeur Service (Our Vehicle)</option>
+<option>Family Transportation</option>
+<option>Child Transportation</option>
+<option>Old Age Transportation</option>
+<option>Driving Service</option></select><label for="property">Property Type</label>
 
-</select>
-
-<label for="property">Property Type</label>
-
-<select id="property">
-
-<option>House</option>
+<select id="property"><option>House</option>
 <option>Apartment</option>
 <option>Office</option>
-<option>Business</option>
-
-</select>
-
-<label for="bookingDate">Preferred Date</label>
+<option>Business</option></select><label for="bookingDate">Preferred Date</label>
 
 <input
 type="date"
@@ -115,9 +141,7 @@ id="locationBtn">
 
 📍 Use My Current Location
 
-</button>
-
-<br><br>
+</button><br><br>
 
 <input
 type="text"
@@ -125,13 +149,9 @@ id="gpsLocation"
 placeholder="GPS Coordinates"
 readonly>
 
-<label for="photo">
+<label for="photo">📸 Upload a Photo (Optional)
 
-📸 Upload a Photo (Optional)
-
-</label>
-
-<input
+</label><input
 type="file"
 id="photo"
 accept="image/*">
@@ -142,71 +162,51 @@ src=""
 alt="Photo Preview"
 style="display:none;max-width:250px;margin-top:15px;border-radius:10px;">
 
-<label for="notes">
+<label for="notes">Special Instructions
 
-Special Instructions
-
-</label>
-
-<textarea
+</label><textarea
 id="notes"
 rows="5"
-placeholder="Describe your request..."></textarea>
-
-<h3>Payment Method</h3>
-
-<label>
-
+placeholder="Describe your request..."></textarea><div class="payment-box"><h3>💳 Payment Method</h3><label>
 <input
 type="radio"
 name="payment"
 value="Cash"
-checked>
-
-Cash
-
+checked>Cash
 </label>
 
-<br>
-
-<label>
-
+<br><label>
 <input
 type="radio"
 name="payment"
-value="EFT">
-
-EFT
-
+value="EFT">EFT
 </label>
 
-<br>
-
-<label>
-
+<br><label>
 <input
 type="radio"
 name="payment"
-value="Card">
-
-Card
-
+value="Yoco">Yoco
 </label>
 
-<br>
-
-<label>
-
+<br><label>
 <input
 type="radio"
 name="payment"
-value="iKhokha">
-
-iKhokha
-
+value="iKhokha">iKhokha
 </label>
 
-<br><br>
+<p class="payment-note">
+For Yoco payments, click the button below to pay securely.
+</p><a
+href="https://pay.yoco.com/yengwayo-llnts-5"
+target="_blank"
+rel="noopener noreferrer"
+class="yoco-btn">
+
+💳 Pay with Yoco
+
+</a></div><br><br>
 
 <button
 type="submit"
@@ -214,41 +214,27 @@ class="primary-btn">
 
 📅 Submit Booking
 
-</button>
+</button></form></div></section><footer><p>📞 068 868 5355</p><p>
+📧
+<a href="mailto:leemobilebusiness@gmail.com">
+leemobilebusiness@gmail.com
+</a>
+</p><p>
+📍 Johannesburg • Pretoria • Midrand • Centurion • Tembisa
+</p><p>
+© 2026 Lee Mobile Services. All Rights Reserved.
+</p></footer><script src="price.js"></script><!-- EmailJS --><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script>
 
-</form>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>📞 068 868 5355</p>
-
-<p>📧<a href="mailto:leemobilebusiness@gmail.com">leemobilebusiness@gmail.com</a></p>
-
-<p>📍 Johannesburg • Pretoria • Midrand • Centurion • Tembisa</p>
-
-<p>© 2026 Lee Mobile Services. All Rights Reserved.</p>
-
-</footer>
-
-<script src="price.js"></script>
-
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
 (function () {
+
     emailjs.init({
         publicKey: "Y8dwbI_Kqo7m_GwFA"
     });
+
 })();
-</script>
 
-<!-- Booking Script -->
-<script type="module" src="booking.js"></script>
-
-</body>
+</script><!-- Booking Script --><script
+type="module"
+src="booking.js">
+</script></body>
 </html>
