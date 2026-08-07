@@ -1,10 +1,30 @@
 {
-  "name": "Lee Mobile Laundry, Car Wash and Cleaning Services",
-  "short_name": "Lee Mobile",
-  "description": "Book mobile laundry, car wash and cleaning services.",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#f4f7f6",
-  "theme_color": "#0b6e4f",
-  "icons": []
+"name": "Lee Mobile Services",
+"short_name": "Lee Mobile",
+"description": "Professional mobile services, cleaning, deliveries, home services, transportation and more.",
+"start_url": "./index.html",
+"scope": "./",
+"display": "standalone",
+"orientation": "portrait",
+"background_color": "#ffffff",
+"theme_color": "#0A66C2",
+"categories": [
+"business",
+"services",
+"shopping"
+],
+"icons": [
+{
+"src": "icons/icon-192.png",
+"sizes": "192x192",
+"type": "image/png",
+"purpose": "any maskable"
+},
+{
+"src": "icons/icon-512.png",
+"sizes": "512x512",
+"type": "image/png",
+"purpose": "any maskable"
+}
+]
 }
