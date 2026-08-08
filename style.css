@@ -390,3 +390,199 @@ font-size:30px;
 grid-template-columns:1fr;
 }
 }
+
+
+/* =========================================
+   LEE MOBILE SERVICES - SERVICE SECTIONS
+========================================= */
+
+.services {
+    padding: 60px 20px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.services h2 {
+    text-align: center;
+    color: #0A66C2;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.services h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #0A66C2;
+    margin: 12px auto 0;
+    border-radius: 5px;
+}
+
+/* SERVICE GRID */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* SERVICE CARD */
+
+.service-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+    border: 1px solid #e5eaf0;
+    transition: all 0.3s ease;
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(10, 102, 194, 0.18);
+    border-color: #0A66C2;
+}
+
+.service-card h3 {
+    color: #0A66C2;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* BOOK NOW BUTTON */
+
+.service-card a {
+    text-decoration: none;
+}
+
+.service-card button {
+    background: #0A66C2;
+    color: #ffffff;
+    border: none;
+    padding: 11px 25px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.service-card button:hover {
+    background: #084f96;
+    transform: scale(1.03);
+}
+
+/* CONTACT SECTION */
+
+.contact {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 45px 25px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact p {
+    color: #444;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.contact .primary-btn {
+    display: inline-block;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================================
+   MOBILE SERVICES
+========================================= */
+
+@media (max-width: 768px) {
+
+    .services {
+        padding: 40px 15px;
+    }
+
+    .services h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card {
+        min-height: auto;
+        padding: 22px 18px;
+    }
+
+    .service-card h3 {
+        font-size: 19px;
+    }
+
+    .service-card p {
+        font-size: 15px;
+    }
+
+    .service-card button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .contact {
+        margin: 30px 15px;
+        padding: 30px 20px;
+    }
+
+    .contact p {
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 400px) {
+
+    .services {
+        padding: 30px 12px;
+    }
+
+    .services h2 {
+        font-size: 25px;
+    }
+
+    .service-card {
+        padding: 20px 15px;
+    }
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+}
