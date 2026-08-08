@@ -1,94 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Lee Mobile Services - Price List</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:#f5f7fa;
-    color:#333;
+/* =========================
+   BODY
+========================= */
+
+body {
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.5;
 }
 
-header{
-    background:#0d47a1;
-    color:#fff;
-    text-align:center;
-    padding:20px;
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #0A66C2;
+    color: #ffffff;
+    text-align: center;
+    padding: 22px 15px;
 }
 
-header h1{
-    font-size:30px;
+header h1 {
+    font-size: 30px;
+    font-weight: 800;
 }
 
-header p{
-    margin-top:8px;
+header p {
+    margin-top: 7px;
+    font-size: 15px;
 }
 
-.container{I 
-    width:95%;
-    max-width:1000px;
-    margin:30px auto;
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 30px auto;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+/* =========================
+   PRICE TABLE
+========================= */
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
 }
 
-th{
-    background:#1565c0;
-    color:#fff;
-    padding:15px;
-    font-size:18px;
+/* TABLE HEADER */
+
+.price-table th {
+    background: #0A66C2;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 17px;
+    text-align: left;
 }
 
-td{
-    padding:15px;
-    border-bottom:1px solid #ddd;
+.price-table th:last-child {
+    text-align: right;
 }
 
-tr:nth-child(even){
-    background:#f8f8f8;
+/* TABLE CELLS */
+
+.price-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e1e5e9;
+    font-size: 15px;
 }
 
-tr:hover{
-    background:#e3f2fd;
+/* SERVICE COLUMN */
+
+.price-table td:first-child {
+    font-weight: 500;
 }
 
-.price{
-    font-weight:bold;
-    color:#0d47a1;
+/* PRICE COLUMN */
+
+.price {
+    font-weight: 700;
+    color: #0A66C2;
+    text-align: right;
+    white-space: nowrap;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    margin-top:30px;
-    background:#0d47a1;
-    color:#fff;
+/* ALTERNATING ROWS */
+
+.price-table tbody tr:nth-child(even) {
+    background: #f8fafc;
 }
 
-@media(max-width:700px){
-table{
-font-size:14px;
+/* HOVER */
+
+.price-table tbody tr:hover {
+    background: #e3f2fd;
 }
-th,td{
-padding:10px;
+
+/* =========================
+   DRIVER INFORMATION
+========================= */
+
+.driver-info {
+    background: #ffffff;
+    margin-top: 25px;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
 }
+
+.driver-info h3 {
+    color: #0A66C2;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
+
+.driver-info p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* =========================
+   BOOK NOW BUTTON
+========================= */
+
+.book-btn {
+    display: inline-block;
+    margin-top: 18px;
+    background: #0A66C2;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background: #084f96;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 40px;
+    background: #0A66C2;
+    color: #ffffff;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 96%;
+        margin: 20px auto;
+    }
+
+    header {
+        padding: 18px 10px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    header p {
+        font-size: 13px;
+    }
+
+    .price-table th {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    .price-table td {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    .price-table td:first-child {
+        width: 65%;
+    }
+
+    .price {
+        font-size: 13px;
+    }
+
+    .driver-info {
+        padding: 22px 15px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .price-table th {
+        font-size: 13px;
+    }
+
+    .price-table td {
+        font-size: 13px;
+        padding: 11px 8px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+}
+
 </style>
 
 </head>
@@ -96,18 +257,30 @@ padding:10px;
 <body>
 
 <header>
+
 <h1>Lee Mobile Services</h1>
-<p>Professional Mobile Cleaning & Home Improvement Services</p>
+
+<p>
+Professional Mobile Cleaning & Home Improvement Services
+</p>
+
 </header>
+
 
 <div class="container">
 
-<table>
+<table class="price-table">
+
+<thead>
 
 <tr>
 <th>Service</th>
 <th>Starting Price</th>
 </tr>
+
+</thead>
+
+<tbody>
 
 <tr>
 <td>🧺 Mobile Laundry (Wash & Fold)</td>
@@ -199,131 +372,149 @@ padding:10px;
 <td class="price">Free Consultation</td>
 </tr>
 
+<tr>
+<td>🐶 Dog Grooming</td>
+<td class="price">From R180</td>
+</tr>
 
-<div class="card">
-    <h3>🐶 Dog Grooming</h3>
-    <p>From R180</p>
-</div>
+<tr>
+<td>🚰 Water Delivery</td>
+<td class="price">From R80 per bottle</td>
+</tr>
 
-<div class="card">
-    <h3>🚰 Water Delivery</h3>
-    <p>From R80 per bottle</p>
-</div>
+<tr>
+<td>🧻 Toilet Paper Delivery</td>
+<td class="price">From R120 per pack</td>
+</tr>
 
-<div class="card">
-    <h3>🧻 Toilet Paper Delivery</h3>
-    <p>From R120 per pack</p>
-</div>
+<tr>
+<td>🛒 Grocery Delivery</td>
+<td class="price">From R100</td>
+</tr>
 
-<div class="card">
-    <h3>🛒 Grocery Delivery</h3>
-    <p>From R100</p>
-</div>
+<tr>
+<td>🗑️ Rubbish Removal</td>
+<td class="price">From R300</td>
+</tr>
 
-<div class="card">
-    <h3>🗑️ Rubbish Removal</h3>
-    <p>From R300</p>
-</div>
+<tr>
+<td>🐾 Pet Sitting</td>
+<td class="price">From R200</td>
+</tr>
 
-<div class="card">
-    <h3>🐾 Pet Sitting</h3>
-    <p>From R200</p>
-</div>
+<tr>
+<td>🧹 Office Cleaning</td>
+<td class="price">From R450</td>
+</tr>
 
-<div class="card">
-    <h3>🧹 Office Cleaning</h3>
-    <p>From R450</p>
-</div>
+<tr>
+<td>🏢 Apartment Cleaning</td>
+<td class="price">From R400</td>
+</tr>
 
-<div class="card">
-    <h3>🏢 Apartment Cleaning</h3>
-    <p>From R400</p>
-</div>
+<tr>
+<td>🚛 Furniture Moving</td>
+<td class="price">Free Quote</td>
+</tr>
 
-<div class="card">
-    <h3>🚛 Furniture Moving</h3>
-    <p>Free Quote</p>
-</div>
+<tr>
+<td>📦 Parcel Delivery</td>
+<td class="price">From R80</td>
+</tr>
 
-<div class="card">
-    <h3>📦 Parcel Delivery</h3>
-    <p>From R80</p>
-</div>
+<tr>
+<td>🪜 Gutter Cleaning</td>
+<td class="price">From R350</td>
+</tr>
 
-<div class="card">
-    <h3>🪜 Gutter Cleaning</h3>
-    <p>From R350</p>
-</div>
+<tr>
+<td>💡 Electrical Repairs</td>
+<td class="price">Free Quote</td>
+</tr>
 
-<div class="card">
-    <h3>💡 Electrical Repairs</h3>
-    <p>Free Quote</p>
-</div>
+<tr>
+<td>🔑 Handyman Services</td>
+<td class="price">From R250</td>
+</tr>
 
-<div class="card">
-    <h3>🔑 Handyman Services</h3>
-    <p>From R250</p>
-</div>
+<tr>
+<td>🚚 Moving Assistance</td>
+<td class="price">Free Quote</td>
+</tr>
 
-<div class="card">
-    <h3>🚚 Moving Assistance</h3>
-    <p>Free Quote</p>
-</div>
+<tr>
+<td>👵 Elderly Care</td>
+<td class="price">From R500 per day</td>
+</tr>
 
+<tr>
+<td>👶 Child Care / Babysitting</td>
+<td class="price">From R350 per day</td>
+</tr>
 
-   <div class="card">
-    <h3>👵 Elderly Care</h3>
-    <p>From R500 per day</p>
-</div>
+<tr>
+<td>🤒 Home Patient Care</td>
+<td class="price">From R600 per day</td>
+</tr>
 
-<div class="card">
-    <h3>👶 Child Care / Babysitting</h3>
-    <p>From R350 per day</p>
-</div>
+<tr>
+<td>🐶 Pet Care (Dogs & Cats)</td>
+<td class="price">From R250 per day</td>
+</tr>
 
-<div class="card">
-    <h3>🤒 Home Patient Care</h3>
-    <p>From R600 per day</p>
-</div>
+<tr>
+<td>🏡 House Sitting</td>
+<td class="price">From R350 per day</td>
+</tr>
 
-<div class="card">
-    <h3>🐶 Pet Care (Dogs & Cats)</h3>
-    <p>From R250 per day</p>
-</div>
+<tr>
+<td>🚘 Personal Driver (Your Car)</td>
+<td class="price">From R250 per trip</td>
+</tr>
 
-<div class="card">
-    <h3>🏡 House Sitting</h3>
-    <p>From R350 per day</p>
-</div>
+<tr>
+<td>🚖 Chauffeur Service (Our Vehicle)</td>
+<td class="price">From R350 per trip</td>
+</tr>
 
+<tr>
+<td>👨‍👩‍👧 Family Care Services</td>
+<td class="price">Free Quote</td>
+</tr>
 
-<div class="card">
-    <h3>🚘 Personal Driver (Your Car)</h3>
-    <p>From R250 per trip or Free Quote for hourly and daily bookings.</p>
-</div>
+</tbody>
 
-<div class="card">
-    <h3>🚖 Chauffeur Service (Our Vehicle)</h3>
-    <p>From R350 per trip or Free Quote for long-distance travel.</p>
-</div>
-
-
-    <p style="text-align:center; margin-top:20px;">
-🚗 <strong>Professional Drivers Available</strong><br>
-Need a driver? We can drive you safely in the comfort of your own vehicle, or you can request one of our vehicles for local or long-distance trips.
-</p>
-<div class="card">
-    <h3>👨‍👩‍👧 Family Care Services</h3>
-    <p>Daily care and supervision for your loved ones while you're away.</p>
-</div>
-    
 </table>
 
+
+<!-- DRIVER INFORMATION -->
+
+<div class="driver-info">
+
+<h3>🚗 Professional Drivers Available</h3>
+
+<p>
+Need a driver? We can drive you safely in the comfort of your own vehicle,
+or you can request one of our vehicles for local or long-distance trips.
+</p>
+
+<a href="booking.html" class="book-btn">
+📅 Book a Service
+</a>
+
 </div>
 
+</div>
+
+
 <footer>
-© 2026 Lee Mobile Services | Quality Service at Affordable Prices
+
+<p><strong>Lee Mobile Services</strong></p>
+
+<p>© 2026 Lee Mobile Services | Quality Service at Affordable Prices</p>
+
 </footer>
 
 </body>
+
 </html>
