@@ -8,23 +8,18 @@
   "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#0A66C2",
-  "categories": [
-    "business",
-    "services",
-    "shopping"
-  ],
   "icons": [
     {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
+      "src": "./Lee-Mobile-Services-App-Icon-Under-256KB.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
+      "src": "./Lee-Mobile-Services-App-Icon-Under-256KB-2.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ]
 }
