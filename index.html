@@ -2,35 +2,794 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Lee Mobile Services</title>
+    <title>
+        Lee Mobile Services | We Come To You
+    </title>
 
-    <meta name="description"
-          content="Professional mobile laundry, car wash, cleaning, deliveries, home services, transportation and more.">
+    <meta
+        name="description"
+        content="Lee Mobile Services provides mobile laundry, car wash, cleaning, plumbing, landscaping, gardening, dog grooming, deliveries, transportation and more. We come to you across Johannesburg, Pretoria, Midrand, Centurion and Tembisa."
+    >
 
-    <meta name="theme-color"
-          content="#0A66C2">
+    <meta
+        name="theme-color"
+        content="#0A66C2"
+    >
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    <link rel="manifest"
-          href="manifest.json">
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+
+    <style>
+
+        /* ==========================================
+           HOMEPAGE IMPROVEMENTS
+           ========================================== */
+
+        .hero {
+
+            position: relative;
+
+        }
+
+
+        .hero-content {
+
+            max-width: 900px;
+
+            margin: auto;
+
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 8px 15px;
+
+            background: rgba(255,255,255,0.95);
+
+            color: #0A66C2;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+        }
+
+
+        .hero-content h1 {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .hero-subtitle {
+
+            max-width: 760px;
+
+            margin: 0 auto 20px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .hero-note {
+
+            margin: 18px auto;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .whatsapp-hero {
+
+            display: inline-block;
+
+            padding: 14px 22px;
+
+            background: #25D366;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ==========================================
+           TRUST SECTION
+           ========================================== */
+
+        .trust-section {
+
+            padding: 30px 15px;
+
+            background: #ffffff;
+
+        }
+
+
+        .trust-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .trust-card {
+
+            padding: 20px 15px;
+
+            text-align: center;
+
+            background: #f5f8fc;
+
+            border-radius: 12px;
+
+            border:
+                1px solid #e2ebf5;
+
+        }
+
+
+        .trust-card h3 {
+
+            margin:
+                5px 0 8px;
+
+            color: #0A66C2;
+
+            font-size: 17px;
+
+        }
+
+
+        .trust-card p {
+
+            margin: 0;
+
+            color: #555;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ==========================================
+           SECTION INTRO
+           ========================================== */
+
+        .section-intro {
+
+            max-width: 750px;
+
+            margin:
+                0 auto 25px;
+
+            text-align: center;
+
+            color: #555;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ==========================================
+           POPULAR SERVICES
+           ========================================== */
+
+        .popular-section {
+
+            padding: 40px 15px;
+
+            background: #f5f7fa;
+
+        }
+
+
+        .popular-section h2 {
+
+            text-align: center;
+
+            color: #0A66C2;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .popular-cards {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+
+        }
+
+
+        .popular-card {
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 2px 10px
+                rgba(0,0,0,0.06);
+
+            text-align: center;
+
+            border:
+                1px solid #e5e5e5;
+
+        }
+
+
+        .popular-card h3 {
+
+            margin:
+                0 0 10px;
+
+            color: #222;
+
+            font-size: 17px;
+
+        }
+
+
+        .popular-card p {
+
+            margin: 0 0 15px;
+
+            color: #0A66C2;
+
+            font-weight: bold;
+
+        }
+
+
+        .service-book-btn {
+
+            display: inline-block;
+
+            padding:
+                9px 14px;
+
+            background: #0A66C2;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ==========================================
+           VIEW ALL SERVICES
+           ========================================== */
+
+        .view-services {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+        }
+
+
+        .view-services a {
+
+            display: inline-block;
+
+            padding:
+                13px 22px;
+
+            background: #0A66C2;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ==========================================
+           PRICE LIST
+           ========================================== */
+
+        .services-preview {
+
+            padding: 40px 15px;
+
+        }
+
+
+        .services-preview > h2 {
+
+            text-align: center;
+
+            color: #0A66C2;
+
+        }
+
+
+        .price-note {
+
+            max-width: 700px;
+
+            margin:
+                10px auto 25px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* ==========================================
+           BOOKING CTA
+           ========================================== */
+
+        .booking-cta {
+
+            padding:
+                45px 20px;
+
+            background: #0A66C2;
+
+            color: white;
+
+            text-align: center;
+
+        }
+
+
+        .booking-cta h2 {
+
+            margin-top: 0;
+
+            font-size: 28px;
+
+        }
+
+
+        .booking-cta p {
+
+            max-width: 650px;
+
+            margin:
+                0 auto 22px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .cta-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .cta-book {
+
+            display: inline-block;
+
+            padding:
+                14px 25px;
+
+            background: #ff9800;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        .cta-whatsapp {
+
+            display: inline-block;
+
+            padding:
+                14px 25px;
+
+            background: #25D366;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ==========================================
+           REVIEWS
+           ========================================== */
+
+        .reviews-section {
+
+            padding:
+                40px 15px;
+
+            background: #ffffff;
+
+        }
+
+
+        .reviews-section h2 {
+
+            text-align: center;
+
+            color: #0A66C2;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .reviews-grid {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .review-card {
+
+            padding: 20px;
+
+            background: #f7f9fc;
+
+            border-radius: 12px;
+
+            border:
+                1px solid #e5e5e5;
+
+        }
+
+
+        .review-stars {
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .review-card p {
+
+            color: #555;
+
+            line-height: 1.6;
+
+        }
+
+
+        .review-card strong {
+
+            color: #333;
+
+        }
+
+
+        /* ==========================================
+           LOCATIONS
+           ========================================== */
+
+        .locations-section {
+
+            padding:
+                35px 15px;
+
+            text-align: center;
+
+            background: #f5f7fa;
+
+        }
+
+
+        .locations-section h2 {
+
+            color: #0A66C2;
+
+        }
+
+
+        .locations {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+        }
+
+
+        .location-tag {
+
+            padding:
+                9px 14px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            border:
+                1px solid #dce5ef;
+
+            color: #333;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+           ========================================== */
+
+        @media (max-width: 850px) {
+
+            .trust-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .popular-cards {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .reviews-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .trust-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 10px;
+
+            }
+
+
+            .trust-card {
+
+                padding:
+                    15px 10px;
+
+            }
+
+
+            .trust-card h3 {
+
+                font-size: 15px;
+
+            }
+
+
+            .trust-card p {
+
+                font-size: 13px;
+
+            }
+
+
+            .popular-cards {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 10px;
+
+            }
+
+
+            .popular-card {
+
+                padding: 15px 10px;
+
+            }
+
+
+            .popular-card h3 {
+
+                font-size: 15px;
+
+            }
+
+
+            .popular-card p {
+
+                font-size: 14px;
+
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .hero-buttons a {
+
+                width: 90%;
+
+                box-sizing: border-box;
+
+                text-align: center;
+
+            }
+
+
+            .cta-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .cta-buttons a {
+
+                width: 90%;
+
+                box-sizing: border-box;
+
+                text-align: center;
+
+                margin: auto;
+
+            }
+
+        }
+
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
+
+<!-- ==========================================
+     HEADER
+     ========================================== -->
 
 <header class="header">
 
+
     <div class="logo">
+
 
         <div class="roof">
 
@@ -42,6 +801,7 @@ HEADER
 
         </div>
 
+
         <div class="brand">
 
             <h1>LEE</h1>
@@ -52,72 +812,469 @@ HEADER
 
         </div>
 
+
     </div>
 
 
-    <nav class="navbar" id="navbar">
 
-        <a href="index.html">Home</a>
+    <nav
+        class="navbar"
+        id="navbar"
+    >
 
-        <a href="services.html">Services</a>
+        <a href="index.html">
+            Home
+        </a>
 
-        <a href="prices.html">Prices</a>
+        <a href="services.html">
+            Services
+        </a>
 
-        <a href="booking.html">Book Now</a>
+        <a href="prices.html">
+            Prices
+        </a>
 
-        <a href="membership.html">Membership</a>
+        <a href="booking.html">
+            Book Now
+        </a>
 
-        <a href="about.html">About</a>
+        <a href="membership.html">
+            Membership
+        </a>
 
-        <a href="contact.html">Contact</a>
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
 
     </nav>
+
 
 </header>
 
 
-<!-- =========================
-HERO
-========================= -->
+
+<!-- ==========================================
+     HERO
+     ========================================== -->
 
 <section class="hero">
 
+
     <div class="hero-content">
 
-        <h1>Professional Mobile Services</h1>
 
-        <p>
-            Mobile Laundry • Car Wash • Home Cleaning • Plumbing
-            • Renovations • Painting • Gardening • Landscaping
-            • Interior Design
+        <span class="hero-badge">
+
+            🚗 We Come To You
+
+        </span>
+
+
+        <h1>
+
+            Professional Mobile Services
+
+        </h1>
+
+
+        <p class="hero-subtitle">
+
+            Convenient services delivered
+            directly to your home, office
+            or business.
+
+            <br>
+
+            Laundry • Car Wash • Cleaning •
+            Plumbing • Landscaping • Gardening
+            • Dog Grooming • Deliveries
+            • Transportation & More
+
         </p>
+
+
+        <p class="hero-note">
+
+            📍 Johannesburg • Pretoria • Midrand
+            • Centurion • Tembisa
+
+        </p>
+
+
 
         <div class="hero-buttons">
 
-            <a href="booking.html"
-               class="primary-btn">
+
+            <a
+                href="booking.html"
+                class="primary-btn"
+            >
+
                 📅 Book Now
+
             </a>
 
-            <a href="services.html"
-               class="secondary-btn">
-                🛠 View Services
+
+            <a
+                href="https://wa.me/27688685355?text=Hi%20Lee%20Mobile%20Services%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+                class="whatsapp-hero"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                💬 WhatsApp Us
+
             </a>
+
+
+            <a
+                href="services.html"
+                class="secondary-btn"
+            >
+
+                🛠 View Services
+
+            </a>
+
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-PRICE LIST
-========================= -->
+
+<!-- ==========================================
+     TRUST
+     ========================================== -->
+
+<section class="trust-section">
+
+
+    <div class="trust-grid">
+
+
+        <div class="trust-card">
+
+            <div style="font-size:28px;">
+                ⭐
+            </div>
+
+            <h3>
+                Professional Service
+            </h3>
+
+            <p>
+                We focus on quality
+                and customer satisfaction.
+            </p>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div style="font-size:28px;">
+                🚗
+            </div>
+
+            <h3>
+                We Come To You
+            </h3>
+
+            <p>
+                No need to travel.
+                We come to your location.
+            </p>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div style="font-size:28px;">
+                💰
+            </div>
+
+            <h3>
+                Affordable Prices
+            </h3>
+
+            <p>
+                Starting prices are shown
+                before you book.
+            </p>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div style="font-size:28px;">
+                📱
+            </div>
+
+            <h3>
+                Easy Booking
+            </h3>
+
+            <p>
+                Book online or contact us
+                directly on WhatsApp.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     POPULAR SERVICES
+     ========================================== -->
+
+<section class="popular-section">
+
+
+    <h2>
+        ⭐ Popular Services
+    </h2>
+
+
+    <p class="section-intro">
+
+        Need something done at your home,
+        office or business? Start with one
+        of our popular services below.
+
+    </p>
+
+
+
+    <div class="popular-cards">
+
+
+        <div class="popular-card">
+
+            <h3>
+                🚗 Mobile Car Wash
+            </h3>
+
+            <p>
+                From R150
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🏠 Home Cleaning
+            </h3>
+
+            <p>
+                From R350
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🐶 Dog Grooming
+            </h3>
+
+            <p>
+                From R180
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🚿 Plumbing
+            </h3>
+
+            <p>
+                From R350
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🌿 Gardening
+            </h3>
+
+            <p>
+                From R250
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🏡 Landscaping
+            </h3>
+
+            <p>
+                From R500
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🧺 Mobile Laundry
+            </h3>
+
+            <p>
+                From R120
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+
+        <div class="popular-card">
+
+            <h3>
+                🪟 Window Cleaning
+            </h3>
+
+            <p>
+                From R250
+            </p>
+
+            <a
+                href="booking.html"
+                class="service-book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="view-services">
+
+        <a href="services.html">
+
+            🛠 View All Services
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     PRICE LIST
+     ========================================== -->
 
 <section class="services-preview">
 
-    <h2>💰 Our Price List</h2>
+
+    <h2>
+        💰 Our Starting Prices
+    </h2>
+
+
+    <p class="price-note">
+
+        Prices below are starting prices.
+        The final price may depend on the
+        size of the job, location, materials
+        and specific requirements.
+
+    </p>
+
 
 
     <div class="cards">
@@ -346,22 +1503,44 @@ PRICE LIST
 
 
         <div class="card">
-            <h3>🚘 Personal Driver (Your Car)</h3>
+
+            <h3>
+                🚘 Personal Driver (Your Car)
+            </h3>
 
             <p>
-                <strong>From R250 per trip</strong>
-                or Free Quote for hourly and daily bookings.
+
+                <strong>
+                    From R250 per trip
+                </strong>
+
+                <br>
+
+                or Free Quote for hourly
+                and daily bookings.
+
             </p>
 
         </div>
 
 
         <div class="card">
-            <h3>🚖 Chauffeur Service (Our Vehicle)</h3>
+
+            <h3>
+                🚖 Chauffeur Service (Our Vehicle)
+            </h3>
 
             <p>
-                <strong>From R350 per trip</strong>
-                or Free Quote for long-distance travel.
+
+                <strong>
+                    From R350 per trip
+                </strong>
+
+                <br>
+
+                or Free Quote for
+                long-distance travel.
+
             </p>
 
         </div>
@@ -369,11 +1548,16 @@ PRICE LIST
 
         <div class="card">
 
-            <h3>👨‍👩‍👧 Family Care Services</h3>
+            <h3>
+                👨‍👩‍👧 Family Care Services
+            </h3>
 
             <p>
-                Daily care and supervision for your loved ones
-                while you're away.
+
+                Daily care and supervision
+                for your loved ones while
+                you're away.
+
             </p>
 
         </div>
@@ -382,28 +1566,51 @@ PRICE LIST
     </div>
 
 
-    <p style="text-align:center; margin-top:20px;">
+    <p
+        style="
+        text-align:center;
+        margin-top:25px;
+        line-height:1.6;
+        "
+    >
 
-        🚗 <strong>Professional Drivers Available</strong>
+        🚗 <strong>
+            Professional Drivers Available
+        </strong>
 
         <br>
 
-        Need a driver? We can drive you safely in the comfort
-        of your own vehicle, or you can request one of our
-        vehicles for local or long-distance trips.
+        Need a driver? We can drive you
+        safely in your own vehicle, or you
+        can request one of our vehicles for
+        local or long-distance trips.
 
     </p>
 
+
 </section>
 
 
-<!-- =========================
-WHY CHOOSE US
-========================= -->
+
+<!-- ==========================================
+     WHY CHOOSE US
+     ========================================== -->
 
 <section class="services-preview">
 
-    <h2>Why Choose Lee Mobile Services?</h2>
+
+    <h2>
+        Why Choose Lee Mobile Services?
+    </h2>
+
+
+    <p class="section-intro">
+
+        We make everyday services more
+        convenient by bringing them directly
+        to you.
+
+    </p>
 
 
     <div class="cards">
@@ -411,35 +1618,69 @@ WHY CHOOSE US
 
         <div class="card">
 
-            <h3>⭐ Professional Team</h3>
+            <h3>
+                ⭐ Professional Service
+            </h3>
 
             <p>
-                Experienced staff committed to quality workmanship
-                and excellent customer service.
+
+                We are committed to quality
+                workmanship and excellent
+                customer service.
+
             </p>
 
         </div>
 
 
+
         <div class="card">
 
-            <h3>🚗 We Come To You</h3>
+            <h3>
+                🚗 We Come To You
+            </h3>
 
             <p>
-                Enjoy convenient mobile services at your home,
-                office or business.
+
+                Enjoy convenient mobile
+                services at your home, office
+                or business.
+
             </p>
 
         </div>
 
 
+
         <div class="card">
 
-            <h3>💰 Affordable Prices</h3>
+            <h3>
+                💰 Affordable Prices
+            </h3>
 
             <p>
-                Professional service at competitive prices
-                with no hidden costs.
+
+                Starting prices are displayed
+                clearly so you can understand
+                your options before booking.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                📱 Easy Booking
+            </h3>
+
+            <p>
+
+                Book online or contact us
+                directly through WhatsApp.
+
             </p>
 
         </div>
@@ -447,96 +1688,225 @@ WHY CHOOSE US
 
     </div>
 
+
 </section>
 
 
-<!-- =========================
-CUSTOMER REVIEWS
-========================= -->
 
-<section class="services-preview">
+<!-- ==========================================
+     REVIEWS
+     ========================================== -->
 
-    <h2>Customer Reviews</h2>
-
-
-    <div class="cards">
+<section class="reviews-section">
 
 
-        <div class="card">
+    <h2>
+        ⭐ Customer Reviews
+    </h2>
 
-            <h3>⭐⭐⭐⭐⭐</h3>
+
+    <p class="section-intro">
+
+        We value every customer and aim
+        to provide convenient, reliable
+        service.
+
+    </p>
+
+
+    <div class="reviews-grid">
+
+
+        <div class="review-card">
+
+            <div class="review-stars">
+                ⭐⭐⭐⭐⭐
+            </div>
 
             <p>
-                "Amazing service! My laundry was collected
-                and delivered on time."
+
+                "Amazing service! My laundry
+                was collected and delivered
+                on time."
+
             </p>
 
-            <strong>- Happy Customer</strong>
+            <strong>
+                - Happy Customer
+            </strong>
 
         </div>
 
 
-        <div class="card">
 
-            <h3>⭐⭐⭐⭐⭐</h3>
+        <div class="review-card">
+
+            <div class="review-stars">
+                ⭐⭐⭐⭐⭐
+            </div>
 
             <p>
-                "Professional car wash and friendly staff.
-                Highly recommended."
+
+                "Professional car wash and
+                friendly service. Highly
+                recommended."
+
             </p>
 
-            <strong>- Satisfied Client</strong>
+            <strong>
+                - Satisfied Client
+            </strong>
 
         </div>
 
 
-        <div class="card">
 
-            <h3>⭐⭐⭐⭐⭐</h3>
+        <div class="review-card">
+
+            <div class="review-stars">
+                ⭐⭐⭐⭐⭐
+            </div>
 
             <p>
-                "Excellent home cleaning service.
-                My house looked brand new."
+
+                "Excellent home cleaning
+                service. My house looked
+                great."
+
             </p>
 
-            <strong>- Returning Customer</strong>
+            <strong>
+                - Returning Customer
+            </strong>
 
         </div>
 
 
     </div>
 
+
 </section>
 
 
-<!-- =========================
-CALL TO ACTION
-========================= -->
 
-<section class="services-preview">
+<!-- ==========================================
+     LOCATIONS
+     ========================================== -->
 
-    <h2>Ready to Book?</h2>
+<section class="locations-section">
+
+
+    <h2>
+        📍 Areas We Serve
+    </h2>
+
 
     <p>
-        Book your service today and let Lee Mobile Services
-        come to you.
+        Mobile services available across
+        selected areas.
     </p>
 
-    <br>
 
-    <a href="booking.html"
-       class="primary-btn">
-        Book Now
-    </a>
+    <div class="locations">
+
+
+        <span class="location-tag">
+            Johannesburg
+        </span>
+
+
+        <span class="location-tag">
+            Pretoria
+        </span>
+
+
+        <span class="location-tag">
+            Midrand
+        </span>
+
+
+        <span class="location-tag">
+            Centurion
+        </span>
+
+
+        <span class="location-tag">
+            Tembisa
+        </span>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- =========================
-WHATSAPP BUTTON
-SELF-CONTAINED SVG
-NO EXTERNAL IMAGE
-========================= -->
+
+<!-- ==========================================
+     FINAL BOOKING CTA
+     ========================================== -->
+
+<section class="booking-cta">
+
+
+    <h2>
+        Ready to Book?
+    </h2>
+
+
+    <p>
+
+        Tell us what service you need,
+        choose your preferred date and time,
+        and we'll contact you to confirm
+        availability and the final price.
+
+        <br><br>
+
+        <strong>
+            No payment is required to submit
+            a booking request.
+        </strong>
+
+    </p>
+
+
+
+    <div class="cta-buttons">
+
+
+        <a
+            href="booking.html"
+            class="cta-book"
+        >
+
+            📅 Book Now
+
+        </a>
+
+
+        <a
+            href="https://wa.me/27688685355?text=Hi%20Lee%20Mobile%20Services%2C%20I%20would%20like%20to%20make%20a%20booking%20enquiry."
+            class="cta-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            💬 Book on WhatsApp
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     FLOATING WHATSAPP
+     ========================================== -->
 
 <a
     href="https://wa.me/27688685355"
@@ -545,6 +1915,7 @@ NO EXTERNAL IMAGE
     rel="noopener noreferrer"
     aria-label="Contact Lee Mobile Services on WhatsApp"
 >
+
 
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -555,7 +1926,6 @@ NO EXTERNAL IMAGE
         focusable="false"
     >
 
-        <!-- White WhatsApp logo -->
         <path
             fill="#ffffff"
             d="M19.11 17.39c-.27-.14-1.59-.78-1.83-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.59-.65 1.82-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
@@ -568,66 +1938,104 @@ NO EXTERNAL IMAGE
 
     </svg>
 
+
 </a>
 
 
-<!-- =========================
-FOOTER
-========================= -->
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
 
 <footer>
 
-    <p>
-        &copy; 2026 Lee Mobile Services.
-        All Rights Reserved.
-    </p>
 
     <p>
-        Professional Mobile Services Across South Africa.
+
+        &copy; 2026 Lee Mobile Services.
+        All Rights Reserved.
+
     </p>
+
+
+    <p>
+
+        Professional Mobile Services
+        Across South Africa.
+
+    </p>
+
 
 </footer>
 
 
-<!-- =========================
-JAVASCRIPT
-========================= -->
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
 
 <script src="script.js"></script>
 
 
-<!-- =========================
-SERVICE WORKER / PWA
-========================= -->
+
+<!-- ==========================================
+     SERVICE WORKER / PWA
+     ========================================== -->
 
 <script>
 
-if ("serviceWorker" in navigator) {
+if (
+    "serviceWorker"
+    in navigator
+) {
 
-    window.addEventListener("load", function () {
 
-        navigator.serviceWorker
-            .register("./sw.js")
+    window.addEventListener(
+        "load",
+        function () {
 
-            .then(function (registration) {
 
-                console.log(
-                    "Lee Mobile Services Service Worker registered successfully:",
-                    registration.scope
+            navigator.serviceWorker
+                .register("./sw.js")
+
+
+                .then(
+                    function (registration) {
+
+
+                        console.log(
+
+                            "Lee Mobile Services Service Worker registered successfully:",
+
+                            registration.scope
+
+                        );
+
+
+                    }
+                )
+
+
+                .catch(
+                    function (error) {
+
+
+                        console.error(
+
+                            "Lee Mobile Services Service Worker registration failed:",
+
+                            error
+
+                        );
+
+
+                    }
                 );
 
-            })
 
-            .catch(function (error) {
+        }
+    );
 
-                console.error(
-                    "Lee Mobile Services Service Worker registration failed:",
-                    error
-                );
-
-            });
-
-    });
 
 }
 
@@ -635,4 +2043,5 @@ if ("serviceWorker" in navigator) {
 
 
 </body>
+
 </html>
