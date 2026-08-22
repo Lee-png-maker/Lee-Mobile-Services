@@ -1,566 +1,661 @@
-// ===============================
+// ==========================================
 // Lee Mobile Services - booking.js
-// Firebase + EmailJS + Yoco Payment Link
-// ===============================
+// Firebase + optional EmailJS notification
+// No payment required during initial booking
+// ==========================================
 
-import { db, storage } from "./firebase.js";
 
 import {
-  collection,
-  addDoc
+    db,
+    storage
+} from "./firebase.js";
+
+
+import {
+    collection,
+    addDoc
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
+
 import {
-  ref,
-  uploadBytes,
-  getDownloadURL
+    ref,
+    uploadBytes,
+    getDownloadURL
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-storage.js";
 
 
-// ===============================
-// YOCO PAYMENT LINK
-// ===============================
 
-const YOCO_PAYMENT_LINK =
-  "https://pay.yoco.com/yengwayo-llnts-5";
+// ==========================================
+// PHOTO PREVIEW
+// ==========================================
+
+const photoInput =
+    document.getElementById(
+        "photo"
+    );
 
 
-// ===============================
-// Photo Preview
-// ===============================
+const preview =
+    document.getElementById(
+        "preview"
+    );
 
-const photoInput = document.getElementById("photo");
-const preview = document.getElementById("preview");
 
-if (photoInput && preview) {
+if (
+    photoInput &&
+    preview
+) {
 
-  photoInput.addEventListener("change", () => {
+    photoInput.addEventListener(
+        "change",
+        () => {
 
-    const file = photoInput.files[0];
+            const file =
+                photoInput.files[0];
 
-    if (file) {
 
-      preview.src = URL.createObjectURL(file);
+            if (!file) {
 
-      preview.style.display = "block";
+                preview.src = "";
 
-    } else {
+                preview.style.display =
+                    "none";
 
-      preview.style.display = "none";
+                return;
 
-    }
+            }
 
-  });
+
+            if (
+                !file.type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                alert(
+                    "Please select an image file."
+                );
+
+                photoInput.value = "";
+
+                preview.src = "";
+
+                preview.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            // Maximum 10 MB
+
+            if (
+                file.size >
+                10 * 1024 * 1024
+            ) {
+
+                alert(
+                    "Please choose an image smaller than 10 MB."
+                );
+
+                photoInput.value = "";
+
+                preview.src = "";
+
+                preview.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            preview.src =
+                URL.createObjectURL(
+                    file
+                );
+
+
+            preview.style.display =
+                "block";
+
+        }
+    );
 
 }
 
 
-// ===============================
-// Booking Form
-// ===============================
+
+// ==========================================
+// BOOKING FORM
+// ==========================================
 
 const bookingForm =
-  document.getElementById("bookingForm");
+    document.getElementById(
+        "bookingForm"
+    );
 
 
 if (bookingForm) {
 
-  bookingForm.addEventListener("submit", async (e) => {
 
-    e.preventDefault();
+    bookingForm.addEventListener(
+        "submit",
+        async (e) => {
 
+            e.preventDefault();
 
-    try {
 
-      // ===============================
-      // Get Customer Information
-      // ===============================
 
-      const name =
-        document.getElementById("name").value.trim();
+            const submitButton =
+                bookingForm.querySelector(
+                    'button[type="submit"]'
+                );
 
-      const phone =
-        document.getElementById("phone").value.trim();
 
-      const email =
-        document.getElementById("email").value.trim();
 
-      const service =
-        document.getElementById("service").value;
+            try {
+
 
-      const property =
-        document.getElementById("property").value;
+                // ==========================================
+                // CUSTOMER DETAILS
+                // ==========================================
 
-      const address =
-        document.getElementById("address").value.trim();
+                const name =
+                    document
+                        .getElementById(
+                            "name"
+                        )
+                        ?.value
+                        .trim()
+                    || "";
 
-      const bookingDate =
-        document.getElementById("bookingDate").value;
 
-      const bookingTime =
-        document.getElementById("bookingTime").value;
+                const phone =
+                    document
+                        .getElementById(
+                            "phone"
+                        )
+                        ?.value
+                        .trim()
+                    || "";
 
-      const gpsLocation =
-        document.getElementById("gpsLocation").value;
 
-      const notes =
-        document.getElementById("notes").value.trim();
+                const email =
+                    document
+                        .getElementById(
+                            "email"
+                        )
+                        ?.value
+                        .trim()
+                    || "";
 
 
-      // ===============================
-      // Payment Method
-      // ===============================
+                const service =
+                    document
+                        .getElementById(
+                            "service"
+                        )
+                        ?.value
+                    || "";
 
-      const paymentOption =
-        document.querySelector(
-          'input[name="payment"]:checked'
-        );
 
-      const payment =
-        paymentOption
-          ? paymentOption.value
-          : "Cash";
+                const property =
+                    document
+                        .getElementById(
+                            "property"
+                        )
+                        ?.value
+                    || "";
 
 
-      // ===============================
-      // Basic Validation
-      // ===============================
+                const address =
+                    document
+                        .getElementById(
+                            "address"
+                        )
+                        ?.value
+                        .trim()
+                    || "";
 
-      if (!name) {
 
-        alert("Please enter your full name.");
+                const bookingDate =
+                    document
+                        .getElementById(
+                            "bookingDate"
+                        )
+                        ?.value
+                    || "";
 
-        return;
 
-      }
+                const bookingTime =
+                    document
+                        .getElementById(
+                            "bookingTime"
+                        )
+                        ?.value
+                    || "";
 
 
-      if (!phone) {
+                const gpsLocation =
+                    document
+                        .getElementById(
+                            "gpsLocation"
+                        )
+                        ?.value
+                        .trim()
+                    || "";
 
-        alert("Please enter your phone number.");
 
-        return;
+                const notes =
+                    document
+                        .getElementById(
+                            "notes"
+                        )
+                        ?.value
+                        .trim()
+                    || "";
 
-      }
 
 
-      if (!service) {
+                // ==========================================
+                // VALIDATION
+                // ==========================================
 
-        alert("Please select a service.");
+                if (!name) {
 
-        return;
+                    alert(
+                        "Please enter your full name."
+                    );
 
-      }
+                    return;
 
+                }
 
-      if (!bookingDate) {
 
-        alert("Please select a booking date.");
+                if (!phone) {
 
-        return;
+                    alert(
+                        "Please enter your WhatsApp or phone number."
+                    );
 
-      }
+                    return;
 
+                }
 
-      if (!bookingTime) {
 
-        alert("Please select a booking time.");
+                if (!service) {
 
-        return;
+                    alert(
+                        "Please select a service."
+                    );
 
-      }
+                    return;
 
+                }
 
-      if (!address) {
 
-        alert("Please enter the service address.");
+                if (!bookingDate) {
 
-        return;
+                    alert(
+                        "Please select a preferred date."
+                    );
 
-      }
+                    return;
 
+                }
 
-      // ===============================
-      // Prevent Double Submission
-      // ===============================
 
-      const submitButton =
-        bookingForm.querySelector(
-          'button[type="submit"]'
-        );
+                if (!bookingTime) {
 
+                    alert(
+                        "Please select a preferred time."
+                    );
 
-      if (submitButton) {
+                    return;
 
-        submitButton.disabled = true;
+                }
 
-        submitButton.textContent =
-          "⏳ Submitting Booking...";
 
-      }
+                if (!address) {
 
+                    alert(
+                        "Please enter the service address."
+                    );
 
-      // ===============================
-      // Upload Photo
-      // ===============================
+                    return;
 
-      let photoURL = "";
+                }
 
-      const file =
-        photoInput && photoInput.files
-          ? photoInput.files[0]
-          : null;
 
 
-      if (file) {
+                // ==========================================
+                // PREVENT DOUBLE SUBMISSION
+                // ==========================================
 
-        const safeFileName =
-          file.name.replace(
-            /[^a-zA-Z0-9._-]/g,
-            "_"
-          );
+                if (submitButton) {
 
+                    submitButton.disabled =
+                        true;
 
-        const storageRef = ref(
-          storage,
-          "bookings/" +
-          Date.now() +
-          "_" +
-          safeFileName
-        );
+                    submitButton.textContent =
+                        "⏳ Submitting Booking...";
 
+                }
 
-        await uploadBytes(
-          storageRef,
-          file
-        );
 
 
-        photoURL =
-          await getDownloadURL(
-            storageRef
-          );
+                // ==========================================
+                // PHOTO UPLOAD
+                // ==========================================
 
-      }
+                let photoURL = "";
 
 
-      // ===============================
-      // Payment Status
-      // ===============================
+                const file =
+                    photoInput?.files?.[0]
+                    || null;
 
-      let paymentStatus =
-        "Not Paid";
 
+                if (file) {
 
-      if (payment === "Yoco") {
 
-        paymentStatus =
-          "Awaiting Yoco Payment";
+                    if (
+                        !file.type.startsWith(
+                            "image/"
+                        )
+                    ) {
 
-      }
+                        throw new Error(
+                            "Please select a valid image."
+                        );
 
+                    }
 
-      // ===============================
-      // Save Booking to Firestore
-      // ===============================
 
-      const bookingData = {
+                    if (
+                        file.size >
+                        10 * 1024 * 1024
+                    ) {
 
-        name,
+                        throw new Error(
+                            "The selected image is larger than 10 MB."
+                        );
 
-        phone,
+                    }
 
-        email,
 
-        service,
+                    const safeFileName =
+                        file.name.replace(
+                            /[^a-zA-Z0-9._-]/g,
+                            "_"
+                        );
 
-        property,
 
-        address,
+                    const storageRef =
+                        ref(
+                            storage,
+                            `bookings/${Date.now()}_${safeFileName}`
+                        );
 
-        bookingDate,
 
-        bookingTime,
+                    await uploadBytes(
+                        storageRef,
+                        file
+                    );
 
-        gpsLocation,
 
-        notes,
+                    photoURL =
+                        await getDownloadURL(
+                            storageRef
+                        );
 
-        payment,
+                }
 
-        paymentStatus,
 
-        photo: photoURL,
 
-        status: "Pending",
+                // ==========================================
+                // BOOKING DATA
+                // ==========================================
 
-        createdAt: new Date()
+                const bookingData = {
 
-      };
+                    name,
 
+                    phone,
 
-      const bookingRef =
-        await addDoc(
-          collection(db, "bookings"),
-          bookingData
-        );
+                    email,
 
+                    service,
 
-      console.log(
-        "Booking created:",
-        bookingRef.id
-      );
+                    property,
 
+                    address,
 
-      // ===============================
-      // Send EmailJS Notification
-      // ===============================
+                    bookingDate,
 
-      if (
-        typeof emailjs !== "undefined"
-      ) {
+                    bookingTime,
 
-        await emailjs.send(
+                    gpsLocation,
 
-          "service_vn8t8vf",
+                    notes,
 
-          "template_q6x3tmq",
+                    // No payment at booking stage
 
-          {
+                    payment:
+                        "Not selected",
 
-            name: name,
+                    paymentStatus:
+                        "Not Paid",
 
-            phone: phone,
+                    photo:
+                        photoURL,
 
-            email: email,
+                    status:
+                        "Pending",
 
-            service: service,
+                    createdAt:
+                        new Date()
 
-            date: bookingDate,
+                };
 
-            time: bookingTime,
 
-            address: address,
 
-            property_type: property,
+                // ==========================================
+                // SAVE TO FIREBASE
+                // ==========================================
 
-            message: notes,
+                const bookingRef =
+                    await addDoc(
+                        collection(
+                            db,
+                            "bookings"
+                        ),
+                        bookingData
+                    );
 
-            payment: payment,
 
-            payment_status: paymentStatus,
+                console.log(
+                    "Booking created:",
+                    bookingRef.id
+                );
 
-            booking_id: bookingRef.id
 
-          }
 
-        );
+                // ==========================================
+                // EMAILJS NOTIFICATION
+                // ==========================================
 
-      }
+                if (
+                    typeof emailjs !==
+                    "undefined"
+                ) {
 
+                    try {
 
-      // ===============================
-      // Yoco Payment
-      // ===============================
+                        await emailjs.send(
 
-      if (payment === "Yoco") {
+                            "service_vn8t8vf",
 
-        alert(
-          "✅ Booking received!\n\n" +
-          "You will now be taken to Yoco to make your payment."
-        );
+                            "template_q6x3tmq",
 
+                            {
 
-        // Store booking ID temporarily
-        // so it can be used on the confirmation page.
+                                name:
+                                    name,
 
-        sessionStorage.setItem(
-          "leeBookingId",
-          bookingRef.id
-        );
+                                phone:
+                                    phone,
 
+                                email:
+                                    email,
 
-        sessionStorage.setItem(
-          "leePaymentMethod",
-          "Yoco"
-        );
+                                service:
+                                    service,
 
+                                date:
+                                    bookingDate,
 
-        sessionStorage.setItem(
-          "leePaymentStatus",
-          "Awaiting Yoco Payment"
-        );
+                                time:
+                                    bookingTime,
 
+                                address:
+                                    address,
 
-        // Open Yoco Payment Link
+                                property_type:
+                                    property,
 
-        window.location.href =
-          YOCO_PAYMENT_LINK;
+                                message:
+                                    notes,
 
-        return;
+                                payment:
+                                    "Not selected",
 
-      }
+                                payment_status:
+                                    "Not Paid",
 
+                                booking_id:
+                                    bookingRef.id
 
-      // ===============================
-      // Other Payment Methods
-      // ===============================
+                            }
 
-      alert(
-        "✅ Booking submitted successfully!"
-      );
+                        );
 
 
-      bookingForm.reset();
+                        console.log(
+                            "EmailJS notification sent."
+                        );
 
 
-      if (preview) {
+                    }
 
-        preview.src = "";
+                    catch (
+                        emailError
+                    ) {
 
-        preview.style.display = "none";
+                        console.error(
+                            "EmailJS notification failed:",
+                            emailError
+                        );
 
-      }
+                    }
 
+                }
 
-      window.location.href =
-        "confirmation.html";
 
 
-    }
+                // ==========================================
+                // SUCCESS
+                // ==========================================
 
-    catch (error) {
+                alert(
 
-      console.error(
-        "Booking error:",
-        error
-      );
+                    "✅ Booking received successfully!\n\n" +
 
+                    "We will contact you to confirm " +
 
-      alert(
-        "❌ Booking failed.\n\n" +
-        error.message
-      );
+                    "availability and the final price."
 
+                );
 
-      // Re-enable button
 
-      const submitButton =
-        bookingForm.querySelector(
-          'button[type="submit"]'
-        );
 
+                sessionStorage.setItem(
 
-      if (submitButton) {
+                    "leeBookingId",
 
-        submitButton.disabled = false;
+                    bookingRef.id
 
-        submitButton.textContent =
-          "📅 Submit Booking";
+                );
 
-      }
 
-    }
 
-  });
+                bookingForm.reset();
 
-}
 
 
-// ===============================
-// GPS LOCATION
-// ===============================
+                if (preview) {
 
-window.getLocation = function () {
+                    preview.src = "";
 
-  if (!navigator.geolocation) {
+                    preview.style.display =
+                        "none";
 
-    alert(
-      "❌ Geolocation is not supported by your browser."
+                }
+
+
+
+                // Confirmation page
+
+                window.location.href =
+                    "confirmation.html";
+
+
+            }
+
+
+
+            catch (error) {
+
+
+                console.error(
+
+                    "Booking error:",
+
+                    error
+
+                );
+
+
+                alert(
+
+                    "❌ Booking could not be submitted.\n\n" +
+
+                    (
+                        error?.message
+                        ||
+                        "Please try again or book via WhatsApp."
+                    )
+
+                );
+
+
+
+                if (submitButton) {
+
+                    submitButton.disabled =
+                        false;
+
+                    submitButton.textContent =
+                        "📅 Submit Booking";
+
+                }
+
+            }
+
+        }
+
     );
-
-    return;
-
-  }
-
-
-  navigator.geolocation.getCurrentPosition(
-
-    (position) => {
-
-      const latitude =
-        position.coords.latitude;
-
-      const longitude =
-        position.coords.longitude;
-
-
-      const gpsField =
-        document.getElementById(
-          "gpsLocation"
-        );
-
-
-      if (gpsField) {
-
-        gpsField.value =
-          latitude +
-          "," +
-          longitude;
-
-      }
-
-    },
-
-    (error) => {
-
-      console.error(
-        "Location error:",
-        error
-      );
-
-
-      alert(
-        "❌ Unable to get your location.\n\n" +
-        "Please allow location access and try again."
-      );
-
-    },
-
-    {
-
-      enableHighAccuracy: true,
-
-      timeout: 10000,
-
-      maximumAge: 0
-
-    }
-
-  );
-
-};
-
-
-// ===============================
-// LOCATION BUTTON
-// ===============================
-
-const locationBtn =
-  document.getElementById(
-    "locationBtn"
-  );
-
-
-if (locationBtn) {
-
-  locationBtn.addEventListener(
-    "click",
-    () => {
-
-      window.getLocation();
-
-    }
-  );
 
 }
