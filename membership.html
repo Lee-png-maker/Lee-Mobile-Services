@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Membership | Lee Mobile Services</title>
+<title>Membership | Lee Mobile Services & Construction</title>
+
+<meta name="description"
+content="Join Lee Mobile Services & Construction membership for exclusive discounts, priority bookings, monthly specials and loyalty rewards.">
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -14,19 +20,23 @@
 <header class="header">
 
 <div class="logo">
+
 <h1>LEE</h1>
-<h2>MOBILE SERVICES</h2>
+<h2>MOBILE SERVICES & CONSTRUCTION</h2>
 <p>WE COME TO YOU</p>
+
 </div>
 
 <nav class="navbar">
+
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="prices.html">Prices</a>
 <a href="booking.html">Book Now</a>
-<a href="membership.html" class="active">Membership</a>
+<a href="membership.html">Membership</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
+
 </nav>
 
 </header>
@@ -38,170 +48,290 @@
 <h1>Become a Lee Mobile Member</h1>
 
 <p>
-Enjoy exclusive discounts, priority bookings and premium customer benefits.
+Enjoy exclusive discounts, priority bookings
+and member benefits.
 </p>
 
-<a href="#join">
-<button class="primary-btn">
+<a href="#join" class="primary-btn">
 ⭐ Join Today
-</button>
 </a>
 
 </div>
 
 </section>
 
-<section class="services">
+<section class="section">
 
-<h2>Membership Benefits</h2>
+<h2>⭐ Membership Benefits</h2>
 
-<div class="services-grid">
+<div class="cards">
 
-<div class="service-card">
+<div class="card">
 <h3>⭐ Priority Booking</h3>
-<p>Members receive faster booking and service scheduling.</p>
+<p>Members receive priority booking and scheduling.</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>💰 Exclusive Discounts</h3>
-<p>Save money on selected Lee Mobile Services.</p>
+<p>Save on selected Lee Mobile Services & Construction services.</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>🎁 Monthly Specials</h3>
-<p>Receive exclusive member-only promotions.</p>
+<p>Receive exclusive member promotions.</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>📞 VIP Support</h3>
-<p>Dedicated WhatsApp and phone support.</p>
+<p>Direct WhatsApp and phone support.</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>🎂 Birthday Rewards</h3>
-<p>Special birthday discounts and gifts.</p>
+<p>Special birthday offers for members.</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>🏆 Loyalty Rewards</h3>
-<p>Earn rewards every time you use our services.</p>
+<p>Earn rewards when you use our services.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="services">
+<section class="section light">
 
 <h2>Membership Plans</h2>
 
-<div class="services-grid">
+<div class="cards">
 
-<div class="service-card">
+<div class="card">
+
 <h3>🥉 Bronze</h3>
-<p>R49 per month</p>
+
+<h2>R49/month</h2>
+
 <ul>
 <li>5% Discount</li>
 <li>Monthly Specials</li>
 <li>Member Support</li>
 </ul>
+
 </div>
 
-<div class="service-card">
+<div class="card">
+
 <h3>🥈 Silver</h3>
-<p>R99 per month</p>
+
+<h2>R99/month</h2>
+
 <ul>
 <li>10% Discount</li>
 <li>Priority Booking</li>
 <li>Free Quotations</li>
 </ul>
+
 </div>
 
-<div class="service-card">
+<div class="card">
+
 <h3>🥇 Gold</h3>
-<p>R199 per month</p>
+
+<h2>R199/month</h2>
+
 <ul>
 <li>15% Discount</li>
 <li>Emergency Assistance</li>
 <li>VIP Booking</li>
 </ul>
+
 </div>
 
-<div class="service-card">
+<div class="card">
+
 <h3>💎 Platinum</h3>
-<p>R399 per month</p>
+
+<h2>R399/month</h2>
+
 <ul>
 <li>20% Discount</li>
 <li>Highest Priority</li>
 <li>Dedicated Support</li>
 <li>Exclusive Offers</li>
 </ul>
+
 </div>
 
 </div>
 
 </section>
 
-<section class="contact" id="join">
+<section class="section" id="join">
 
-<h2>Join Lee Mobile Services</h2>
+<h2>⭐ Join Lee Mobile Services & Construction</h2>
 
-<p>Complete the form below to become a Lee Mobile Member.</p>
+<p class="section-intro">
+Complete the form below to request membership.
+</p>
 
-<form class="booking-form">
+<form
+id="membershipForm"
+class="booking-form"
+style="max-width:650px;margin:auto;">
 
-<input type="text" placeholder="Full Name" required>
+<div class="field">
 
-<input type="email" placeholder="Email Address" required>
+<label for="memberName">
+Full Name *
+</label>
 
-<input type="tel" placeholder="Phone Number" required>
+<input
+type="text"
+id="memberName"
+name="name"
+placeholder="Full Name"
+required>
 
-<input type="text" placeholder="Home Address">
+</div>
 
-<select required>
-<option value="">Choose Membership</option>
-<option>🥉 Bronze - R49/month</option>
-<option>🥈 Silver - R99/month</option>
-<option>🥇 Gold - R199/month</option>
-<option>💎 Platinum - R399/month</option>
+<div class="field">
+
+<label for="memberEmail">
+Email Address *
+</label>
+
+<input
+type="email"
+id="memberEmail"
+name="email"
+placeholder="Email Address"
+required>
+
+</div>
+
+<div class="field">
+
+<label for="memberPhone">
+Phone Number *
+</label>
+
+<input
+type="tel"
+id="memberPhone"
+name="phone"
+placeholder="Phone Number"
+required>
+
+</div>
+
+<div class="field">
+
+<label for="memberAddress">
+Home Address
+</label>
+
+<input
+type="text"
+id="memberAddress"
+name="address"
+placeholder="Home Address">
+
+</div>
+
+<div class="field">
+
+<label for="membershipPlan">
+Choose Membership *
+</label>
+
+<select
+id="membershipPlan"
+name="membership"
+required>
+
+<option value="">
+Choose Membership
+</option>
+
+<option value="Bronze - R49/month">
+🥉 Bronze - R49/month
+</option>
+
+<option value="Silver - R99/month">
+🥈 Silver - R99/month
+</option>
+
+<option value="Gold - R199/month">
+🥇 Gold - R199/month
+</option>
+
+<option value="Platinum - R399/month">
+💎 Platinum - R399/month
+</option>
+
 </select>
 
-<textarea
-placeholder="Tell us why you want to become a member (Optional)"
-rows="5"></textarea>
+</div>
 
-<button class="primary-btn" type="submit">
+<div class="field">
+
+<label for="memberMessage">
+Message
+</label>
+
+<textarea
+id="memberMessage"
+name="message"
+placeholder="Tell us anything you'd like us to know..."></textarea>
+
+</div>
+
+<button
+type="submit"
+class="primary-btn">
+
 ⭐ Become a Member
+
 </button>
 
 </form>
 
 </section>
 
-<section class="services">
+<section class="section light">
 
-<h2>Why Join Lee Mobile Services?</h2>
+<h2>Why Join Us?</h2>
 
-<div class="services-grid">
+<div class="cards">
 
-<div class="service-card">
+<div class="card">
 <h3>🚗 We Come To You</h3>
-<p>No need to travel. We provide services at your home or workplace.</p>
+<p>
+Enjoy services at your home or workplace.
+</p>
 </div>
 
-<div class="service-card">
-<h3>👨‍🔧 Professional Team</h3>
-<p>Friendly, experienced and reliable staff.</p>
+<div class="card">
+<h3>🛠 Wide Range of Services</h3>
+<p>
+Cleaning, laundry, construction, landscaping,
+maintenance, deliveries and more.
+</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>📍 Wide Service Area</h3>
-<p>Johannesburg, Pretoria, Midrand, Centurion and Tembisa.</p>
+<p>
+Johannesburg, Pretoria, Midrand, Centurion and Tembisa.
+</p>
 </div>
 
-<div class="service-card">
+<div class="card">
 <h3>📱 Easy Booking</h3>
-<p>Book online, by WhatsApp or by phone.</p>
+<p>
+Book online, by WhatsApp or by phone.
+</p>
 </div>
 
 </div>
@@ -210,49 +340,37 @@ rows="5"></textarea>
 
 <footer>
 
-<p><strong>Lee Mobile Services</strong></p>
+<p>
+<strong>LEE MOBILE SERVICES & CONSTRUCTION</strong>
+</p>
 
 <p>📞 068 868 5355</p>
 
 <p>📧 leemobilebusiness@gmail.com</p>
 
-<p>📍 Johannesburg • Pretoria • Midrand • Centurion • Tembisa</p>
+<p>
+Johannesburg • Pretoria • Midrand • Centurion • Tembisa
+</p>
 
-<p>© 2026 Lee Mobile Services. All Rights Reserved.</p>
+<p>
+© 2026 Lee Mobile Services & Construction.
+All Rights Reserved.
+</p>
 
 </footer>
 
-<script type="module" src="membership.js"></script>I 
-
-<!-- EmailJS -->
+<!-- EmailJS - LOAD ONCE ONLY -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-(function () {
-    emailjs.init({
-        publicKey: "Y8dwbI_Kqo7m_GwFA"
-    });
-})();
-</script>
 
-<!-- Membership Script -->
-<script type="module" src="membership.js"></script>
-
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
-(function () {
-  emailjs.init({
+emailjs.init({
     publicKey: "Y8dwbI_Kqo7m_GwFA"
-  });
-})();
+});
+
 </script>
 
-<!-- Membership Script -->
 <script type="module" src="membership.js"></script>
-
-</body>
 
 </body>
 </html>
