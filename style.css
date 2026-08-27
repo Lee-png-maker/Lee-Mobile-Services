@@ -1,114 +1,52 @@
 /* =========================
-   RESET
+   HERO SECTION
 ========================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f5f7fa;
-    color:#222;
-    line-height:1.6;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.header{
-    background:#0A66C2;
-    color:#fff;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    padding:15px;
-    text-align:center;
-}
-
-.logo h1{
-    font-size:34px;
-}
-
-.logo p{
-    margin-top:5px;
-    font-size:18px;
-}
-
-.menu-toggle{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-.navbar{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:15px;
-}
-
-.navbar a{
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    padding:10px 18px;
-    border-radius:6px;
-    transition:.3s;
-}
-
-.navbar a:hover{
-    background:white;
-    color:#0A66C2;
-}
-/* =========================
-   HERO
-========================= */
-
 
 .hero{
-    background: linear-gradient(rgba(10,102,194,.90), rgba(10,102,194,.90));
+    background:
+        linear-gradient(
+            rgba(10,102,194,0.88),
+            rgba(10,102,194,0.88)
+        ),
+        url("images/hero.jpg") center/cover no-repeat;
+
     min-height:420px;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
-    padding:40px 20px;
+
+    padding:60px 20px;
 }
 
 .hero-content{
-    max-width:800px;
+    width:100%;
+    max-width:900px;
     color:#fff;
 }
 
 .hero h1{
-    font-size:58px;
+    font-size:52px;
     color:#fff;
-    font-weight:700;
-    margin-bottom:15px;
+    font-weight:800;
+    line-height:1.15;
+    margin-bottom:18px;
 }
 
 .hero p{
     color:#fff;
-    font-size:22px;
-    max-width:900px;
-    margin:auto;
-    margin-bottom:35px;
+    font-size:21px;
+    line-height:1.6;
+    max-width:750px;
+    margin:0 auto 30px;
 }
 
 .hero-buttons{
     display:flex;
     justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;  
-}
-
-.hero-buttons{
-    display:flex;
+    align-items:center;
     gap:15px;
     flex-wrap:wrap;
 }
@@ -116,12 +54,14 @@ body{
 .primary-btn,
 .secondary-btn{
     display:inline-block;
-    padding:15px 35px;
-    border-radius:10px;
+    padding:14px 30px;
+    border-radius:8px;
     text-decoration:none;
-    font-size:18px;
+    font-size:17px;
     font-weight:bold;
-    transition:.3s;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 .primary-btn{
@@ -129,460 +69,73 @@ body{
     color:#fff;
 }
 
+.primary-btn:hover{
+    background:#e68900;
+    transform:translateY(-2px);
+}
+
 .secondary-btn{
     background:#fff;
     color:#0A66C2;
 }
 
-/* =========================
-   SECTIONS
-========================= */
-
-.services-preview{
-    padding:60px 20px;
+.secondary-btn:hover{
+    background:#f0f0f0;
+    transform:translateY(-2px);
 }
 
-.services-preview h2{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:40px;
-    color:#0A66C2;
-}
 
 /* =========================
-   CARDS
-========================= */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    gap:20px;
-    max-width:1200px;
-    margin:0 auto;
-}
-
-.card{
-    background:#fff;
-    border-radius:15px;
-    padding:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card h3{
-    font-size:18px;
-    color:#0A66C2;
-    margin-bottom:10px;
-}
-
-.card p{
-    font-size:17px;
-    color:#555;
-}
-
-/* ================================
-   WHATSAPP BUTTON
-================================ */
-
-.whatsapp-float {
-    position: fixed !important;
-
-    right: 20px !important;
-    bottom: 20px !important;
-
-    width: 60px !important;
-    height: 60px !important;
-
-    background: #25D366 !important;
-
-    border-radius: 50% !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    z-index: 999999 !important;
-
-    text-decoration: none !important;
-
-    box-shadow: 0 4px 15px rgba(0,0,0,0.30) !important;
-
-    overflow: visible !important;
-}
-
-.whatsapp-float svg {
-    display: block !important;
-
-    width: 36px !important;
-    height: 36px !important;
-
-    min-width: 36px !important;
-    min-height: 36px !important;
-
-    opacity: 1 !important;
-
-    visibility: visible !important;
-
-    fill: #ffffff !important;
-}
-
-.whatsapp-float svg path {
-    fill: #ffffff !important;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.08);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#0A66C2;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:50px;
-}
-
-/* Premium CSS Logo */
-
-.logo{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:15px 0;
-}
-
-.roof{
-    position:relative;
-    width:120px;
-    height:70px;
-    margin-bottom:10px;
-}
-
-.roof-line{
-    position:absolute;
-    width:65px;
-    height:6px;
-    background:#ffffff;
-    top:22px;
-    border-radius:10px;
-}
-
-.roof-line.left{
-    left:5px;
-    transform:rotate(-28deg);
-    transform-origin:left center;
-}
-
-.roof-line.right{
-    right:5px;
-    transform:rotate(28deg);
-    transform-origin:right center;
-}
-
-.house-window{
-    position:absolute;
-    left:50%;
-    bottom:5px;
-    transform:translateX(-50%);
-    width:26px;
-    height:26px;
-    border:3px solid #FFD54F;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:1fr 1fr;
-}
-
-.house-window::before,
-.house-window::after{
-    content:"";
-    position:absolute;
-    background:#FFD54F;
-}
-
-.house-window::before{
-    width:3px;
-    height:100%;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.house-window::after{
-    width:100%;
-    height:3px;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.brand h1{
-    margin:0;
-    color:#fff;
-    font-size:52px;
-    font-weight:900;
-    letter-spacing:4px;
-    line-height:1;
-}
-
-.brand h2{
-    margin:5px 0;
-    color:#fff;
-    font-size:18px;
-    letter-spacing:4px;
-    font-weight:700;
-}
-
-.brand p{
-    margin:0;
-    color:#FFD54F;
-    font-size:13px;
-    letter-spacing:5px;
-    font-weight:bold;
-}
-
-/* =========================
-   MOBILE
+   MOBILE HERO
 ========================= */
 
 @media(max-width:768px){
 
-.menu-toggle{
-display:block;
-}
-
-.navbar{
-display:none;
-flex-direction:column;
-margin-top:15px;
-}
-
-.navbar.show{
-display:flex;
-}
-
-.logo h1{
-font-size:28px;
-}
-
-.hero-buttons{
-flex-direction:column;
-width:100%;
-}
-
-.primary-btn,
-.secondary-btn{
-width:90%;
-}
-
-.services-preview h2{
-font-size:30px;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-}
-
-
-/* =========================================
-   LEE MOBILE SERVICES - SERVICE SECTIONS
-========================================= */
-
-.services {
-    padding: 60px 20px;
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
-.services h2 {
-    text-align: center;
-    color: #0A66C2;
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 35px;
-    position: relative;
-}
-
-.services h2::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 4px;
-    background: #0A66C2;
-    margin: 12px auto 0;
-    border-radius: 5px;
-}
-
-/* SERVICE GRID */
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1150px;
-    margin: 0 auto;
-}
-
-/* SERVICE CARD */
-
-.service-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
-    border: 1px solid #e5eaf0;
-    transition: all 0.3s ease;
-    min-height: 220px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(10, 102, 194, 0.18);
-    border-color: #0A66C2;
-}
-
-.service-card h3 {
-    color: #0A66C2;
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.service-card p {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* BOOK NOW BUTTON */
-
-.service-card a {
-    text-decoration: none;
-}
-
-.service-card button {
-    background: #0A66C2;
-    color: #ffffff;
-    border: none;
-    padding: 11px 25px;
-    border-radius: 7px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.service-card button:hover {
-    background: #084f96;
-    transform: scale(1.03);
-}
-
-/* CONTACT SECTION */
-
-.contact {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 45px 25px;
-    background: #ffffff;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-.contact p {
-    color: #444;
-    font-size: 17px;
-    margin-bottom: 15px;
-}
-
-.contact .primary-btn {
-    display: inline-block;
-    margin-top: 15px;
-    border: none;
-    cursor: pointer;
-}
-
-/* =========================================
-   MOBILE SERVICES
-========================================= */
-
-@media (max-width: 768px) {
-
-    .services {
-        padding: 40px 15px;
+    .hero{
+        min-height:420px;
+        padding:50px 18px;
     }
 
-    .services h2 {
-        font-size: 28px;
-        margin-bottom: 25px;
+    .hero h1{
+        font-size:36px;
     }
 
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+    .hero p{
+        font-size:17px;
+        margin-bottom:25px;
     }
 
-    .service-card {
-        min-height: auto;
-        padding: 22px 18px;
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+        gap:12px;
     }
 
-    .service-card h3 {
-        font-size: 19px;
-    }
-
-    .service-card p {
-        font-size: 15px;
-    }
-
-    .service-card button {
-        width: 100%;
-        padding: 12px;
-    }
-
-    .contact {
-        margin: 30px 15px;
-        padding: 30px 20px;
-    }
-
-    .contact p {
-        font-size: 15px;
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+        max-width:320px;
+        padding:14px 20px;
     }
 }
 
-/* =========================================
+
+/* =========================
    SMALL PHONES
-========================================= */
+========================= */
 
-@media (max-width: 400px) {
+@media(max-width:400px){
 
-    .services {
-        padding: 30px 12px;
+    .hero{
+        min-height:400px;
+        padding:40px 15px;
     }
 
-    .services h2 {
-        font-size: 25px;
+    .hero h1{
+        font-size:31px;
     }
 
-    .service-card {
-        padding: 20px 15px;
-    }
-
-    .service-card h3 {
-        font-size: 18px;
+    .hero p{
+        font-size:16px;
     }
 }
