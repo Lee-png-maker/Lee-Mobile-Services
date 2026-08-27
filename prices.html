@@ -2,252 +2,72 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lee Mobile Services - Price List</title>
+<title>Prices | Lee Mobile Services & Construction</title>
+
+<meta name="description"
+content="View starting prices for Lee Mobile Services & Construction including cleaning, laundry, car wash, landscaping, construction, plumbing, deliveries and more.">
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* =========================
-   BODY
-========================= */
-
-body {
-    background: #f5f7fa;
-    color: #333;
-    line-height: 1.5;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-    background: #0A66C2;
-    color: #ffffff;
-    text-align: center;
-    padding: 22px 15px;
-}
-
-header h1 {
-    font-size: 30px;
-    font-weight: 800;
-}
-
-header p {
-    margin-top: 7px;
-    font-size: 15px;
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container {
+.price-container {
     width: 95%;
     max-width: 1000px;
     margin: 30px auto;
 }
 
-/* =========================
-   PRICE TABLE
-========================= */
-
 .price-table {
     width: 100%;
     border-collapse: collapse;
-    background: #ffffff;
+    background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.10);
 }
-
-/* TABLE HEADER */
 
 .price-table th {
     background: #0A66C2;
-    color: #ffffff;
+    color: white;
     padding: 15px;
-    font-size: 17px;
     text-align: left;
 }
-
-.price-table th:last-child {
-    text-align: right;
-}
-
-/* TABLE CELLS */
 
 .price-table td {
     padding: 14px 15px;
     border-bottom: 1px solid #e1e5e9;
-    font-size: 15px;
 }
 
-/* SERVICE COLUMN */
-
-.price-table td:first-child {
-    font-weight: 500;
+.price-table tr:nth-child(even) {
+    background: #f8fafc;
 }
-
-/* PRICE COLUMN */
 
 .price {
-    font-weight: 700;
     color: #0A66C2;
+    font-weight: bold;
     text-align: right;
     white-space: nowrap;
 }
 
-/* ALTERNATING ROWS */
-
-.price-table tbody tr:nth-child(even) {
-    background: #f8fafc;
-}
-
-/* HOVER */
-
-.price-table tbody tr:hover {
-    background: #e3f2fd;
-}
-
-/* =========================
-   DRIVER INFORMATION
-========================= */
-
-.driver-info {
-    background: #ffffff;
-    margin-top: 25px;
-    padding: 25px 20px;
-    border-radius: 12px;
+.price-note {
     text-align: center;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin: 15px auto 25px;
+    color: #666;
 }
 
-.driver-info h3 {
-    color: #0A66C2;
-    margin-bottom: 10px;
-    font-size: 20px;
-}
+@media(max-width:600px) {
 
-.driver-info p {
-    color: #555;
-    font-size: 15px;
-}
-
-/* =========================
-   BOOK NOW BUTTON
-========================= */
-
-.book-btn {
-    display: inline-block;
-    margin-top: 18px;
-    background: #0A66C2;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.book-btn:hover {
-    background: #084f96;
-    transform: translateY(-2px);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 40px;
-    background: #0A66C2;
-    color: #ffffff;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    .container {
-        width: 96%;
-        margin: 20px auto;
-    }
-
-    header {
-        padding: 18px 10px;
-    }
-
-    header h1 {
-        font-size: 25px;
-    }
-
-    header p {
-        font-size: 13px;
-    }
-
-    .price-table th {
-        padding: 12px 10px;
-        font-size: 14px;
-    }
-
+    .price-table th,
     .price-table td {
-        padding: 12px 10px;
-        font-size: 14px;
-    }
-
-    .price-table td:first-child {
-        width: 65%;
-    }
-
-    .price {
-        font-size: 13px;
-    }
-
-    .driver-info {
-        padding: 22px 15px;
-    }
-}
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media (max-width: 400px) {
-
-    .price-table th {
-        font-size: 13px;
-    }
-
-    .price-table td {
-        font-size: 13px;
         padding: 11px 8px;
+        font-size: 13px;
     }
 
-    .price {
-        font-size: 12px;
-    }
 }
 
 </style>
@@ -256,265 +76,116 @@ footer p {
 
 <body>
 
-<header>
+<header class="header">
 
-<h1>Lee Mobile Services</h1>
+<div class="logo">
+<h1>LEE</h1>
+<h2>MOBILE SERVICES & CONSTRUCTION</h2>
+<p>WE COME TO YOU</p>
+</div>
 
-<p>
-Professional Mobile Cleaning & Home Improvement Services
-</p>
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="prices.html">Prices</a>
+<a href="booking.html">Book Now</a>
+<a href="membership.html">Membership</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
 
 </header>
 
+<section class="section">
 
-<div class="container">
+<h2>💰 Our Starting Prices</h2>
+
+<p class="price-note">
+These are starting prices. Final prices may depend on
+the size of the job, location, materials and requirements.
+</p>
+
+<div class="price-container">
 
 <table class="price-table">
 
 <thead>
-
 <tr>
 <th>Service</th>
 <th>Starting Price</th>
 </tr>
-
 </thead>
 
 <tbody>
 
-<tr>
-<td>🧺 Mobile Laundry (Wash & Fold)</td>
-<td class="price">From R120</td>
-</tr>
-
-<tr>
-<td>👔 Ironing</td>
-<td class="price">From R80</td>
-</tr>
-
-<tr>
-<td>🚗 Mobile Car Wash</td>
-<td class="price">From R150</td>
-</tr>
-
-<tr>
-<td>🛋 Couch Cleaning</td>
-<td class="price">From R350</td>
-</tr>
-
-<tr>
-<td>🛏 Mattress Cleaning</td>
-<td class="price">From R300</td>
-</tr>
-
-<tr>
-<td>🏠 House Cleaning</td>
-<td class="price">From R350</td>
-</tr>
-
-<tr>
-<td>🪟 Window Cleaning</td>
-<td class="price">From R250</td>
-</tr>
-
-<tr>
-<td>🏊 Pool Cleaning</td>
-<td class="price">From R450</td>
-</tr>
-
-<tr>
-<td>🚿 Plumbing</td>
-<td class="price">From R350</td>
-</tr>
-
-<tr>
-<td>🎨 Painting</td>
-<td class="price">From R500</td>
-</tr>
-
-<tr>
-<td>🧱 Tiling</td>
-<td class="price">From R250/m²</td>
-</tr>
-
-<tr>
-<td>🪵 Flooring Installation</td>
-<td class="price">From R280/m²</td>
-</tr>
-
-<tr>
-<td>🏡 Landscaping</td>
-<td class="price">From R500</td>
-</tr>
-
-<tr>
-<td>🌿 Gardening</td>
-<td class="price">From R250</td>
-</tr>
-
-<tr>
-<td>🌱 Lawn Mowing</td>
-<td class="price">From R200</td>
-</tr>
-
-<tr>
-<td>🔧 Lawn Mower Repair</td>
-<td class="price">From R300</td>
-</tr>
-
-<tr>
-<td>🏠 Home Renovations</td>
-<td class="price">Free Quote</td>
-</tr>
-
-<tr>
-<td>🖼 Interior Design</td>
-<td class="price">Free Consultation</td>
-</tr>
-
-<tr>
-<td>🐶 Dog Grooming</td>
-<td class="price">From R180</td>
-</tr>
-
-<tr>
-<td>🚰 Water Delivery</td>
-<td class="price">From R80 per bottle</td>
-</tr>
-
-<tr>
-<td>🧻 Toilet Paper Delivery</td>
-<td class="price">From R120 per pack</td>
-</tr>
-
-<tr>
-<td>🛒 Grocery Delivery</td>
-<td class="price">From R100</td>
-</tr>
-
-<tr>
-<td>🗑️ Rubbish Removal</td>
-<td class="price">From R300</td>
-</tr>
-
-<tr>
-<td>🐾 Pet Sitting</td>
-<td class="price">From R200</td>
-</tr>
-
-<tr>
-<td>🧹 Office Cleaning</td>
-<td class="price">From R450</td>
-</tr>
-
-<tr>
-<td>🏢 Apartment Cleaning</td>
-<td class="price">From R400</td>
-</tr>
-
-<tr>
-<td>🚛 Furniture Moving</td>
-<td class="price">Free Quote</td>
-</tr>
-
-<tr>
-<td>📦 Parcel Delivery</td>
-<td class="price">From R80</td>
-</tr>
-
-<tr>
-<td>🪜 Gutter Cleaning</td>
-<td class="price">From R350</td>
-</tr>
-
-<tr>
-<td>💡 Electrical Repairs</td>
-<td class="price">Free Quote</td>
-</tr>
-
-<tr>
-<td>🔑 Handyman Services</td>
-<td class="price">From R250</td>
-</tr>
-
-<tr>
-<td>🚚 Moving Assistance</td>
-<td class="price">Free Quote</td>
-</tr>
-
-<tr>
-<td>👵 Elderly Care</td>
-<td class="price">From R500 per day</td>
-</tr>
-
-<tr>
-<td>👶 Child Care / Babysitting</td>
-<td class="price">From R350 per day</td>
-</tr>
-
-<tr>
-<td>🤒 Home Patient Care</td>
-<td class="price">From R600 per day</td>
-</tr>
-
-<tr>
-<td>🐶 Pet Care (Dogs & Cats)</td>
-<td class="price">From R250 per day</td>
-</tr>
-
-<tr>
-<td>🏡 House Sitting</td>
-<td class="price">From R350 per day</td>
-</tr>
-
-<tr>
-<td>🚘 Personal Driver (Your Car)</td>
-<td class="price">From R250 per trip</td>
-</tr>
-
-<tr>
-<td>🚖 Chauffeur Service (Our Vehicle)</td>
-<td class="price">From R350 per trip</td>
-</tr>
-
-<tr>
-<td>👨‍👩‍👧 Family Care Services</td>
-<td class="price">Free Quote</td>
-</tr>
+<tr><td>🧺 Mobile Laundry</td><td class="price">From R120</td></tr>
+<tr><td>👔 Ironing</td><td class="price">From R80</td></tr>
+<tr><td>🚗 Mobile Car Wash</td><td class="price">From R150</td></tr>
+<tr><td>✨ Car Detailing</td><td class="price">Free Quote</td></tr>
+<tr><td>🏠 House Cleaning</td><td class="price">From R350</td></tr>
+<tr><td>🧹 Office Cleaning</td><td class="price">From R450</td></tr>
+<tr><td>🏢 Apartment Cleaning</td><td class="price">From R400</td></tr>
+<tr><td>🛋 Couch Cleaning</td><td class="price">From R350</td></tr>
+<tr><td>🛏 Mattress Cleaning</td><td class="price">From R300</td></tr>
+<tr><td>🪟 Window Cleaning</td><td class="price">From R250</td></tr>
+<tr><td>🏊 Pool Cleaning</td><td class="price">From R450</td></tr>
+<tr><td>🚿 Plumbing</td><td class="price">From R350</td></tr>
+<tr><td>💡 Electrical Repairs</td><td class="price">Free Quote</td></tr>
+<tr><td>🎨 Painting</td><td class="price">From R500</td></tr>
+<tr><td>🧱 Tiling</td><td class="price">From R250/m²</td></tr>
+<tr><td>🪵 Flooring Installation</td><td class="price">From R280/m²</td></tr>
+<tr><td>🏗️ Construction</td><td class="price">Free Quote</td></tr>
+<tr><td>🏠 Home Renovations</td><td class="price">Free Quote</td></tr>
+<tr><td>🖼 Interior Design</td><td class="price">Free Consultation</td></tr>
+<tr><td>🏡 Landscaping</td><td class="price">From R500</td></tr>
+<tr><td>🌿 Gardening</td><td class="price">From R250</td></tr>
+<tr><td>🌱 Lawn Mowing</td><td class="price">From R200</td></tr>
+<tr><td>🔧 Lawn Mower Repair</td><td class="price">From R300</td></tr>
+<tr><td>🔑 Handyman Services</td><td class="price">From R250</td></tr>
+<tr><td>🪜 Gutter Cleaning</td><td class="price">From R350</td></tr>
+<tr><td>🐶 Dog Grooming</td><td class="price">From R180</td></tr>
+<tr><td>🐾 Pet Sitting</td><td class="price">From R200</td></tr>
+<tr><td>🐾 Pet Care</td><td class="price">From R250/day</td></tr>
+<tr><td>🚰 Water Delivery</td><td class="price">From R80/bottle</td></tr>
+<tr><td>🧻 Toilet Paper Delivery</td><td class="price">From R120/pack</td></tr>
+<tr><td>🛒 Grocery Delivery</td><td class="price">From R100</td></tr>
+<tr><td>📦 Parcel Delivery</td><td class="price">From R80</td></tr>
+<tr><td>🗑️ Rubbish Removal</td><td class="price">From R300</td></tr>
+<tr><td>🚛 Furniture Moving</td><td class="price">Free Quote</td></tr>
+<tr><td>🚚 Moving Assistance</td><td class="price">Free Quote</td></tr>
+<tr><td>👵 Elderly Care</td><td class="price">From R500/day</td></tr>
+<tr><td>👶 Child Care / Babysitting</td><td class="price">From R350/day</td></tr>
+<tr><td>🤒 Home Patient Care</td><td class="price">From R600/day</td></tr>
+<tr><td>🏡 House Sitting</td><td class="price">From R350/day</td></tr>
+<tr><td>🚘 Personal Driver (Your Car)</td><td class="price">From R250/trip</td></tr>
+<tr><td>🚖 Chauffeur Service (Our Vehicle)</td><td class="price">From R350/trip</td></tr>
+<tr><td>👨‍👩‍👧 Family Care Services</td><td class="price">Free Quote</td></tr>
 
 </tbody>
 
 </table>
 
+</div>
 
-<!-- DRIVER INFORMATION -->
-
-<div class="driver-info">
-
-<h3>🚗 Professional Drivers Available</h3>
-
-<p>
-Need a driver? We can drive you safely in the comfort of your own vehicle,
-or you can request one of our vehicles for local or long-distance trips.
-</p>
-
-<a href="booking.html" class="book-btn">
+<a href="booking.html" class="primary-btn">
 📅 Book a Service
 </a>
 
-</div>
-
-</div>
-
+</section>
 
 <footer>
 
-<p><strong>Lee Mobile Services</strong></p>
+<p><strong>LEE MOBILE SERVICES & CONSTRUCTION</strong></p>
 
-<p>© 2026 Lee Mobile Services | Quality Service at Affordable Prices</p>
+<p>📞 068 868 5355</p>
+
+<p>📧 leemobilebusiness@gmail.com</p>
+
+<p>Johannesburg • Pretoria • Midrand • Centurion • Tembisa</p>
+
+<p>© 2026 Lee Mobile Services & Construction. All Rights Reserved.</p>
 
 </footer>
 
 </body>
-
 </html>
